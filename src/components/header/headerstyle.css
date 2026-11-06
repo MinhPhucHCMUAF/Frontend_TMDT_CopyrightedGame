@@ -1,0 +1,11 @@
+#header-top {
+  background-color: #000033;
+}
+#navbar-2 {
+  border-top: 1px solid white;
+}
+.btn-profile {
+  border: 2px solid white;
+  border-radius: 30px;
+  padding: 4px;
+}
