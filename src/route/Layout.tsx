@@ -1,3 +1,4 @@
+import { Footer } from "../components/footer/Footer.tsx";
 import { Header } from "../components/header/Header.tsx";
 import { Outlet } from "react-router-dom";
 
@@ -8,6 +9,7 @@ export function Layout() {
       <main>
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 }
