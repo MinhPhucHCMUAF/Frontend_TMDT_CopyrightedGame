@@ -94,7 +94,7 @@ export function Footer() {
                 <input
                   className="form-control"
                   type="email"
-                  placeholder="Email của bạn"
+                  placeholder="Nhập email"
                 />
                 <button className="btn btn-outline-success ms-2" type="submit">
                   Đăng ký

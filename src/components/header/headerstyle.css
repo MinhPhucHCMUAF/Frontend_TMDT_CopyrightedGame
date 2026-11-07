@@ -7,5 +7,12 @@
 .btn-profile {
   border: 2px solid white;
   border-radius: 30px;
-  padding: 4px;
+  padding: 8px;
+}
+.btn-cart {
+  padding: 10px 14px;
+  font-size: 20px;
+  border-radius: 15px;
+  background: #ffb703;
+  box-shadow: 2px 6px 20px rgba(250, 250, 36, 0.3);
 }

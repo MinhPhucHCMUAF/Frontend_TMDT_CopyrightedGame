@@ -1,7 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./headerstyle.css";
-import { faMagnifyingGlass, faBars } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faBars,
+  faCartShopping,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 export function Header() {
   return (
     <header className="text-white" id="header-top">
@@ -21,15 +26,27 @@ export function Header() {
                 </button>
               </form>
             </div>
-            <ul className="navbar-nav flex-row align-items-center flex-shrink-0 gap-2 m-2">
+            <ul className="navbar-nav flex-row align-items-center flex-shrink-0 gap-4 m-2">
               <li className="nav-item ">
-                <Link to="#" className="nav-link fw-semibold btn-profile">
+                <Link
+                  to="#"
+                  className="nav-link fw-semibold btn-profile d-flex gap-2 align-items-center"
+                >
+                  <FontAwesomeIcon
+                    icon={faUser}
+                    style={{ color: "rgb(242, 243, 246)" }}
+                  />
                   <strong>Đăng nhập</strong>
                 </Link>
               </li>
               <li className="nav-item ">
-                <Link to="#" className="nav-link fw-semibold btn-profile">
-                  <strong>Đăng ký</strong>
+                <Link to="#" className="nav-link fw-semibold btn-cart">
+                  <strong>
+                    <FontAwesomeIcon
+                      icon={faCartShopping}
+                      style={{ color: "black" }}
+                    />
+                  </strong>
                 </Link>
               </li>
             </ul>
