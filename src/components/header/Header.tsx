@@ -128,7 +128,7 @@ export function Header() {
             <li className="nav-item col text-center">
               <NavLink
                 className="nav-link text-white fw-semibold text-nowrap"
-                to={"/"}
+                to={"/tin-tuc"}
               >
                 Tin tức
               </NavLink>
