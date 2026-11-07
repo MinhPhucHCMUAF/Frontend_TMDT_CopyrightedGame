@@ -116,7 +116,7 @@ export function Header() {
               </li>
             </ul>
           </div>
-          <ul className="nav row row-cols-2 row-cols-sm-4 align-items-center justify-content-center g-1">
+          <ul className="nav nav-menu row row-cols-2 row-cols-sm-4 align-items-center justify-content-center">
             <li className="nav-item col text-center">
               <NavLink
                 className="nav-link active text-white fw-semibold text-nowrap"
