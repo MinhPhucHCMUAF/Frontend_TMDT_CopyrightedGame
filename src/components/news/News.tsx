@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { newsCategories, newsList } from "../../data/newsData.ts";
+import type { News as NewsItem } from "../../data/newsData.ts";
+import { API_URL } from "../../api/api.ts";
 import { NewsCard } from "./NewsCard.tsx";
 import "./newsstyle.css";
 
@@ -14,9 +15,25 @@ function normalize(text: string): string {
 }
 
 function News() {
+    const [newsList, setNewsList] = useState<NewsItem[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
     const [keyword, setKeyword] = useState("");
     const [category, setCategory] = useState("Tất cả");
     const [sort, setSort] = useState("newest");
+
+    useEffect(() => {
+        fetch(API_URL + "/news")
+            .then((res) => {
+                if (!res.ok) throw new Error("Lỗi " + res.status);
+                return res.json();
+            })
+            .then((data: NewsItem[]) => setNewsList(data))
+            .catch(() => setError("Không tải được tin tức. Hãy kiểm tra json-server đã chạy chưa."))
+            .finally(() => setLoading(false));
+    }, []);
+
+    const categories = ["Tất cả", ...new Set(newsList.map((news) => news.category))];
 
     const result = newsList
         .filter((news) => normalize(news.title).includes(normalize(keyword.trim())))
@@ -57,7 +74,7 @@ function News() {
                 </div>
 
                 <div className="news-categories">
-                    {newsCategories.map((item) => (
+                    {categories.map((item) => (
                         <button
                             key={item}
                             type="button"
@@ -69,20 +86,27 @@ function News() {
                     ))}
                 </div>
 
-                <p className="news-count">Tìm thấy {result.length} bài viết</p>
+                {loading && <div className="news-empty">Đang tải tin tức...</div>}
 
-                {result.length > 0 ? (
-                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                        {result.map((news) => (
-                            <div className="col" key={news.id}>
-                                <NewsCard news={news} />
+                {!loading && error && <div className="news-empty">{error}</div>}
+
+                {!loading && !error && (
+                    <>
+                        <p className="news-count">Tìm thấy {result.length} bài viết</p>
+                        {result.length > 0 ? (
+                            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                                {result.map((news) => (
+                                    <div className="col" key={news.id}>
+                                        <NewsCard news={news} />
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
-                ) : (
-                    <div className="news-empty">
-                        Không có bài viết nào phù hợp. Hãy thử từ khóa hoặc danh mục khác.
-                    </div>
+                        ) : (
+                            <div className="news-empty">
+                                Không có bài viết nào phù hợp. Hãy thử từ khóa hoặc danh mục khác.
+                            </div>
+                        )}
+                    </>
                 )}
             </div>
         </div>
