@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "./Layout.tsx";
 import Home from "../components/home/Home.tsx";
 import News from "../components/news/News.tsx";
+import NewsDetail from "../components/news/NewsDetail.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
       {
         path: "tin-tuc",
         element: <News />,
+      },
+      {
+        path: "tin-tuc/:id",
+        element: <NewsDetail/>,
       },
     ],
   },
