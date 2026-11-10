@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowRight,
+  faArrowsRotate,
+  faBolt,
+  faCreditCard,
+  faRibbon,
+} from "@fortawesome/free-solid-svg-icons";
 import "./home.css";
 function Home() {
   return (
-    <div className="container">
+    <div className="container py-2">
       <div className="row g-3 mb-3 mt-3">
         <div className="col-lg-7">
           <div
@@ -116,32 +124,72 @@ function Home() {
       </div>
       <div className="row g-3 mb-3 mt-3 features-banner">
         <div className="col-6 col-lg-3">
-          <div className="feature">
+          <div className="feature d-flex justify-content-between align-items-center gap-3 ">
+            <FontAwesomeIcon
+              icon={faBolt}
+              style={{ color: "yellow", fontSize: "30px" }}
+            />
             <div>
-              <h4 className="text-white">Giao key trong 1 phút</h4>
+              <h4 className="text-white ">Giao key nhanh chóng</h4>
               <small className="text-warning">Tự động 24/7</small>
             </div>
           </div>
         </div>
         <div className="col-6 col-lg-3">
-          <div>
-            <h4 className="text-white">Đổi key lỗi trong 7 ngày</h4>
-            <small className="text-warning">Hoàn tiền nếu không đổi được</small>
+          <div className="feature d-flex justify-content-between align-items-center gap-3">
+            <FontAwesomeIcon
+              icon={faArrowsRotate}
+              style={{ color: "yellow", fontSize: "30px" }}
+            />
+            <div>
+              <h4 className="text-white">Đổi key lỗi</h4>
+              <small className="text-warning">
+                Hoàn tiền nếu không đổi được
+              </small>
+            </div>
           </div>
         </div>
         <div className="col-6 col-lg-3">
-          <div>
-            <h4 className="text-white">Tích điểm đổi quà</h4>
-            <small className="text-warning">1.000đ = 1 điểm thưởng</small>
+          <div className="feature d-flex justify-content-between align-items-center gap-3">
+            <FontAwesomeIcon
+              icon={faRibbon}
+              style={{ color: "yellow", fontSize: "30px" }}
+            />
+            <div>
+              <h4 className="text-white">Tích điểm đổi quà</h4>
+              <small className="text-warning">1.000đ = 1 điểm thưởng</small>
+            </div>
           </div>
         </div>
         <div className="col-6 col-lg-3">
-          <div>
-            <h4 className="text-white">Thanh toán linh hoạt</h4>
-            <small className="text-warning">
-              MoMo, VNPay, thẻ, chuyển khoản
-            </small>
+          <div className="feature d-flex justify-content-between align-items-center gap-3">
+            <FontAwesomeIcon
+              icon={faCreditCard}
+              style={{ color: "yellow", fontSize: "30px" }}
+            />
+            <div>
+              <h4 className="text-white">Thanh toán linh hoạt</h4>
+              <small className="text-warning">
+                MoMo, VNPay, thẻ, chuyển khoản
+              </small>
+            </div>
           </div>
+        </div>
+      </div>
+      <div className="row g-3 mb-3 mt-3 panel-games ">
+        <div className="d-flex flex-wrap justify-content-between align-items-center gap-3 text-white">
+          <h4>Game bán chạy</h4>
+          <div className="d-flex flex-wrap gap-3 ">
+            <button className="btn btn-info">Tất cả</button>
+            <button className="btn btn-info">Hành động</button>
+            <button className="btn btn-info">Nhập vai</button>
+            <button className="btn btn-info">Thế giới mở</button>
+            <button className="btn btn-info">Mô phỏng</button>
+            <button className="btn btn-info">Kinh dị</button>
+          </div>
+          <Link to={"#"}>
+            Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
+          </Link>
         </div>
       </div>
     </div>
