@@ -1,12 +1,26 @@
-export function CategoryCardHome() {
+export function CategoryCardHome({
+  categoryGames,
+  gamesFilter,
+  setGamesFilter,
+}: any) {
   return (
     <div className="d-flex flex-wrap gap-3 ">
-      <button className="btn btn-info">Tất cả</button>
-      <button className="btn btn-info">Hành động</button>
-      <button className="btn btn-info">Nhập vai</button>
-      <button className="btn btn-info">Thế giới mở</button>
-      <button className="btn btn-info">Mô phỏng</button>
-      <button className="btn btn-info">Kinh dị</button>
+      <button
+        className={`btn ${gamesFilter === null ? "btn-primary" : "btn-info"}`}
+        onClick={() => setGamesFilter(null)}
+      >
+        Tất cả
+      </button>
+
+      {categoryGames.map((cate: any) => (
+        <button
+          key={cate.id}
+          className={`btn ${gamesFilter === cate.id ? "btn-primary" : "btn-info"}`}
+          onClick={() => setGamesFilter(cate.id)}
+        >
+          {cate.name}
+        </button>
+      ))}
     </div>
   );
 }

@@ -15,19 +15,28 @@ import { CategoryCardHome } from "./CategoryCardHome";
 function Home() {
   const [games, setGames] = useState<any[]>([]);
   const [categoryGames, setCategoryGames] = useState([]);
+  const [gamesFilter, setGamesFilter] = useState(null);
 
   useEffect(() => {
     const loadGame = async () => {
       try {
         const resGames = await fetch(`${API_URL}/product-game`);
+        const resCategory = await fetch(`${API_URL}/category-game`);
         const dataGames = await resGames.json();
+        const dataCategory = await resCategory.json();
         setGames(dataGames);
+        setCategoryGames(dataCategory);
       } catch (err) {
         console.log(err);
       }
     };
     loadGame();
   }, []);
+  const filter =
+    gamesFilter === null
+      ? games
+      : games.filter((f: any) => Number(f.categoryID) === Number(gamesFilter));
+
   return (
     <div className="container py-2">
       <div className="row g-3 mb-3 mt-3">
@@ -198,13 +207,17 @@ function Home() {
       <div className="row g-3 mb-3 mt-3 panel-games ">
         <div className="d-flex flex-wrap justify-content-between align-items-center gap-3 text-white">
           <h4>Game bán chạy</h4>
-          <CategoryCardHome />
+          <CategoryCardHome
+            categoryGames={categoryGames}
+            gamesFilter={gamesFilter}
+            setGamesFilter={setGamesFilter}
+          />
           <Link to={"#"}>
             Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </div>
         <div className="row row-cols-2  row-cols-md-3 row-cols-xl-6 g-4 ">
-          {games.map((game: any) => (
+          {filter.map((game: any) => (
             <Homecard key={game.id} game={game} />
           ))}
         </div>
