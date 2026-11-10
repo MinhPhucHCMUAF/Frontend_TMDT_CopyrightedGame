@@ -12,8 +12,10 @@ import { Homecard } from "./Homecard";
 import { useEffect, useState } from "react";
 import { API_URL } from "../../api/api";
 import { CategoryCardHome } from "./CategoryCardHome";
+import { GameCard } from "./GameCard";
 function Home() {
-  const [games, setGames] = useState<any[]>([]);
+  const [games, setGames] = useState([]);
+  const [gamesCard, setGamesCard] = useState([]);
   const [categoryGames, setCategoryGames] = useState([]);
   const [gamesFilter, setGamesFilter] = useState(null);
 
@@ -22,10 +24,13 @@ function Home() {
       try {
         const resGames = await fetch(`${API_URL}/product-game`);
         const resCategory = await fetch(`${API_URL}/category-game`);
+        const resGamesCard = await fetch(`${API_URL}/gameCards`);
         const dataGames = await resGames.json();
         const dataCategory = await resCategory.json();
+        const dataGamesCard = await resGamesCard.json();
         setGames(dataGames);
         setCategoryGames(dataCategory);
+        setGamesCard(dataGamesCard);
       } catch (err) {
         console.log(err);
       }
@@ -206,7 +211,7 @@ function Home() {
       </div>
       <div className="row g-3 mb-3 mt-3 panel-games ">
         <div className="d-flex flex-wrap justify-content-between align-items-center gap-3 text-white">
-          <h4>Game bán chạy</h4>
+          <h4>Tất cả các game</h4>
           <CategoryCardHome
             categoryGames={categoryGames}
             gamesFilter={gamesFilter}
@@ -220,6 +225,16 @@ function Home() {
           {filter.map((game: any) => (
             <Homecard key={game.id} game={game} />
           ))}
+        </div>
+      </div>
+      <div className="row g-3 mb-3 mt-3">
+        <div className="text-white d-flex flex-column justify-content-between  ">
+          <h4>Thẻ nạp game</h4>
+          <div className="row row-cols-xl-4 row-cols-1 row-cols-md-2 g-4">
+            {gamesCard.map((gc: any) => (
+              <GameCard key={gc.id} gameCards={gc} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
