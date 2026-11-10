@@ -8,7 +8,26 @@ import {
   faRibbon,
 } from "@fortawesome/free-solid-svg-icons";
 import "./home.css";
+import { Homecard } from "./Homecard";
+import { useEffect, useState } from "react";
+import { API_URL } from "../../api/api";
+import { CategoryCardHome } from "./CategoryCardHome";
 function Home() {
+  const [games, setGames] = useState<any[]>([]);
+  const [categoryGames, setCategoryGames] = useState([]);
+
+  useEffect(() => {
+    const loadGame = async () => {
+      try {
+        const resGames = await fetch(`${API_URL}/product-game`);
+        const dataGames = await resGames.json();
+        setGames(dataGames);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    loadGame();
+  }, []);
   return (
     <div className="container py-2">
       <div className="row g-3 mb-3 mt-3">
@@ -179,17 +198,15 @@ function Home() {
       <div className="row g-3 mb-3 mt-3 panel-games ">
         <div className="d-flex flex-wrap justify-content-between align-items-center gap-3 text-white">
           <h4>Game bán chạy</h4>
-          <div className="d-flex flex-wrap gap-3 ">
-            <button className="btn btn-info">Tất cả</button>
-            <button className="btn btn-info">Hành động</button>
-            <button className="btn btn-info">Nhập vai</button>
-            <button className="btn btn-info">Thế giới mở</button>
-            <button className="btn btn-info">Mô phỏng</button>
-            <button className="btn btn-info">Kinh dị</button>
-          </div>
+          <CategoryCardHome />
           <Link to={"#"}>
             Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
           </Link>
+        </div>
+        <div className="row row-cols-2  row-cols-md-3 row-cols-xl-6 g-4 ">
+          {games.map((game: any) => (
+            <Homecard key={game.id} game={game} />
+          ))}
         </div>
       </div>
     </div>
