@@ -227,14 +227,19 @@ function Home() {
           ))}
         </div>
       </div>
-      <div className="row g-3 mb-3 mt-3">
-        <div className="text-white d-flex flex-column justify-content-between  ">
+      <div className="row g-3 mb-3 mt-3 card-games">
+        <div className="text-white d-flex flex-column justify-content-between gap-3  ">
           <h4>Thẻ nạp game</h4>
-          <div className="row row-cols-xl-4 row-cols-1 row-cols-md-2 g-4">
-            {gamesCard.map((gc: any) => (
+          <div className="row row-cols-4 g-2 gap-2 justify-content-between">
+            {gamesCard.slice(0, 4).map((gc: any) => (
               <GameCard key={gc.id} gameCards={gc} />
             ))}
           </div>
+        </div>
+      </div>
+      <div className="row g-3 mb-3 mt-3 publisher-games">
+        <div className="text-white">
+          <h4>Nhà phát hành game</h4>
         </div>
       </div>
     </div>

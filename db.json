@@ -313,7 +313,6 @@
       "name": "Steam Wallet",
       "denomination": "50.000đ",
       "price": 50000,
-      "image": "/img/steam.png",
       "description": "Nạp tiền vào ví Steam",
       "status": true
     },
@@ -322,7 +321,6 @@
       "name": "PlayStation",
       "denomination": "100.000đ",
       "price": 100000,
-      "image": "/img/playstation.png",
       "description": "Thẻ nạp PlayStation Store",
       "status": true
     },
@@ -331,7 +329,6 @@
       "name": "Xbox",
       "denomination": "100.000đ",
       "price": 100000,
-      "image": "/img/xbox.png",
       "description": "Thẻ nạp Xbox Gift Card",
       "status": true
     },
@@ -340,7 +337,6 @@
       "name": "Nintendo eShop",
       "denomination": "150.000đ",
       "price": 150000,
-      "image": "/img/nintendo.png",
       "description": "Thẻ nạp Nintendo eShop",
       "status": true
     },
@@ -349,7 +345,6 @@
       "name": "Battle.net",
       "denomination": "100.000đ",
       "price": 100000,
-      "image": "/img/battlenet.png",
       "description": "Nạp tiền vào tài khoản Battle.net",
       "status": true
     },
@@ -358,7 +353,6 @@
       "name": "Garena",
       "denomination": "20.000đ",
       "price": 20000,
-      "image": "/img/garena.png",
       "description": "Thẻ nạp Garena",
       "status": true
     },
@@ -367,7 +361,6 @@
       "name": "Riot Games",
       "denomination": "200.000đ",
       "price": 200000,
-      "image": "/img/riot.png",
       "description": "Thẻ nạp Riot Points (RP)",
       "status": true
     },
@@ -376,7 +369,6 @@
       "name": "VTC",
       "denomination": "100.000đ",
       "price": 100000,
-      "image": "/img/vtc.png",
       "description": "Thẻ nạp VTC Game",
       "status": true
     }
