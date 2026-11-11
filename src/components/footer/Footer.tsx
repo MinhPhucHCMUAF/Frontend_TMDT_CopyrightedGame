@@ -89,17 +89,6 @@ export function Footer() {
               </p>
             </div>
             <div className="col-12 col-lg text-nowrap">
-              <h6 className="footer-title">Nhận ưu đãi qua email</h6>
-              <form className="d-flex" role="search">
-                <input
-                  className="form-control"
-                  type="email"
-                  placeholder="Nhập email"
-                />
-                <button className="btn btn-outline-success ms-2" type="submit">
-                  Đăng ký
-                </button>
-              </form>
               <h6 className="footer-title mt-4">Kết nối với chúng tôi</h6>
               <div className="footer-tags d-flex gap-3">
                 <Link to={"/"}>
