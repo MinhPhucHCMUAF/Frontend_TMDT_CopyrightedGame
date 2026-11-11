@@ -72,10 +72,18 @@ body {
   padding: 10px;
   line-height: 1.3;
 }
+
 .panel-games {
   background: #101e33;
   padding: 10px;
 }
 .card-games {
   padding: 10px;
+}
+.game-link {
+  color: inherit;
+  text-decoration: none;
+}
+.lst-games {
+  padding: 6px;
 }

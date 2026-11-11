@@ -13,9 +13,11 @@ import { useEffect, useState } from "react";
 import { API_URL } from "../../api/api";
 import { CategoryCardHome } from "./CategoryCardHome";
 import { GameCard } from "./GameCard";
+import { Publisher } from "./Publisher";
 function Home() {
   const [games, setGames] = useState([]);
   const [gamesCard, setGamesCard] = useState([]);
+  const [publisher, setPublisher] = useState([]);
   const [categoryGames, setCategoryGames] = useState([]);
   const [gamesFilter, setGamesFilter] = useState(null);
 
@@ -25,12 +27,15 @@ function Home() {
         const resGames = await fetch(`${API_URL}/product-game`);
         const resCategory = await fetch(`${API_URL}/category-game`);
         const resGamesCard = await fetch(`${API_URL}/gameCards`);
+        const resPublisher = await fetch(`${API_URL}/publisher-game`);
         const dataGames = await resGames.json();
         const dataCategory = await resCategory.json();
         const dataGamesCard = await resGamesCard.json();
+        const dataPublisher = await resPublisher.json();
         setGames(dataGames);
         setCategoryGames(dataCategory);
         setGamesCard(dataGamesCard);
+        setPublisher(dataPublisher);
       } catch (err) {
         console.log(err);
       }
@@ -221,8 +226,8 @@ function Home() {
             Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </div>
-        <div className="row row-cols-2  row-cols-md-3 row-cols-xl-6 g-4 ">
-          {filter.map((game: any) => (
+        <div className="row row-cols-2  row-cols-md-2 row-cols-xl-4 g-4 ">
+          {filter.slice(0, 4).map((game: any) => (
             <Homecard key={game.id} game={game} />
           ))}
         </div>
@@ -238,8 +243,13 @@ function Home() {
         </div>
       </div>
       <div className="row g-3 mb-3 mt-3 publisher-games">
-        <div className="text-white">
+        <div className="text-white d-flex flex-column justify-content-between gap-3 ">
           <h4>Nhà phát hành game</h4>
+          <div className="row row-cols-4 g-2 gap-2 justify-content-between">
+            {publisher.slice(0, 4).map((pub: any) => (
+              <Publisher key={pub.id} publisher={pub} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

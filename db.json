@@ -233,14 +233,59 @@
       "name": "Kinh dị"
     }
   ],
+  "publisher-game": [
+    {
+      "id": 1,
+      "name": "CD PROJEKT RED",
+      "gameCount": 14
+    },
+    {
+      "id": 2,
+      "name": "Larian Studios",
+      "gameCount": 6
+    },
+    {
+      "id": 3,
+      "name": "Capcom",
+      "gameCount": 120
+    },
+    {
+      "id": 4,
+      "name": "Ubisoft",
+      "gameCount": 210
+    },
+    {
+      "id": 5,
+      "name": "Bandai Namco",
+      "gameCount": 160
+    },
+    {
+      "id": 6,
+      "name": "Electronic Arts",
+      "gameCount": 180
+    },
+    {
+      "id": 7,
+      "name": "Game Science",
+      "gameCount": 8
+    },
+    {
+      "id": 8,
+      "name": "Paradox Interactive",
+      "gameCount": 90
+    }
+  ],
   "product-game": [
     {
       "id": 1,
       "title": "Cyberpunk 2077",
       "summary": "Game nhập vai hành động thế giới mở trong tương lai, nơi người chơi khám phá Night City.",
       "categoryID": 2,
+      "publisherID": 1,
       "image": "https://images.gog-statics.com/1b6963d25e96ca334bd3a2f85cb2899c252403b63d84e65835427d4df4ddb86a_ggvgl_2x.jpg",
       "date": "2026-11-06",
+      "price": 1290000,
+      "rating": [4, 2, 3, 3.5, 5],
       "views": 0
     },
     {
@@ -248,8 +293,11 @@
       "title": "Monster Hunter Wilds",
       "summary": "Game hành động nhập vai săn quái vật với hệ thống chiến đấu đa dạng và thế giới sinh thái sống động.",
       "categoryID": 1,
+      "publisherID": 3,
       "image": "https://images.gog-statics.com/b6f1a88d2ea8cb900d67390c96023afb6bb8e96d6383dd39c405e6918cd83d9b_ggvgl_2x.jpg",
       "date": "2026-11-04",
+      "price": 1290000,
+      "rating": [4, 2, 3, 3.5, 5],
       "views": 0
     },
     {
@@ -257,8 +305,11 @@
       "title": "Black Myth: Wukong",
       "summary": "Game hành động nhập vai lấy cảm hứng từ Tây Du Ký, nổi bật với những trận chiến boss đầy thử thách.",
       "categoryID": 1,
+      "publisherID": 7,
       "image": "https://images.gog-statics.com/18c6036abe2e41d0e5042ad3959213ec412d3423b52dc22b21e16aca04394024_ggvgl_2x.jpg",
       "date": "2026-11-02",
+      "price": 1290000,
+      "rating": [4, 2, 3, 3.5, 5],
       "views": 0
     },
     {
@@ -266,8 +317,11 @@
       "title": "Baldur's Gate 3",
       "summary": "Game nhập vai theo lượt với cốt truyện phân nhánh, hệ thống chiến đấu chiến thuật và thế giới giả tưởng rộng lớn.",
       "categoryID": 4,
+      "publisherID": 2,
       "image": "https://images.gog-statics.com/48327bab9f9d3b910cb476a59f9123fdb523fafe408cf3f72059073bf3360619_ggvgl_2x.jpg",
       "date": "2026-10-30",
+      "price": 1290000,
+      "rating": [4, 2, 3, 3.5, 5],
       "views": 0
     },
     {
@@ -275,8 +329,11 @@
       "title": "Kingdom Come: Deliverance II",
       "summary": "Game nhập vai thế giới mở lấy bối cảnh Bohemia thế kỷ 15 với lối chơi chân thực.",
       "categoryID": 2,
+      "publisherID": 8,
       "image": "https://images.gog-statics.com/17d4b63ea7e56638f6f642e1c6ee5fd9d16baab402fab30fab7e0269890cfd78_ggvgl_2x.jpg",
       "date": "2026-10-27",
+      "price": 1290000,
+      "rating": [4, 2, 3, 3.5, 5],
       "views": 0
     },
     {
@@ -284,8 +341,11 @@
       "title": "Cities: Skylines II",
       "summary": "Game mô phỏng xây dựng và quản lý thành phố với hệ thống giao thông, kinh tế và quy hoạch chi tiết.",
       "categoryID": 3,
+      "publisherID": 8,
       "image": "https://images.gog-statics.com/17d4b63ea7e56638f6f642e1c6ee5fd9d16baab402fab30fab7e0269890cfd78_ggvgl_2x.jpg",
       "date": "2026-10-27",
+      "price": 1290000,
+      "rating": [4, 2, 3, 3.5, 5],
       "views": 0
     },
     {
@@ -293,8 +353,11 @@
       "title": "Dead Space",
       "summary": "Game kinh dị sinh tồn trong không gian, nơi người chơi phải đối mặt với những sinh vật ngoài hành tinh đáng sợ.",
       "categoryID": 5,
+      "publisherID": 6,
       "image": "https://images.gog-statics.com/17d4b63ea7e56638f6f642e1c6ee5fd9d16baab402fab30fab7e0269890cfd78_ggvgl_2x.jpg",
       "date": "2026-10-27",
+      "price": 1290000,
+      "rating": [4, 2, 3, 3.5, 5],
       "views": 0
     },
     {
@@ -302,8 +365,11 @@
       "title": "Resident Evil 4",
       "summary": "Game hành động kinh dị sinh tồn với nhiệm vụ giải cứu con gái tổng thống và đối đầu với những sinh vật nguy hiểm.",
       "categoryID": 5,
+      "publisherID": 3,
       "image": "https://images.gog-statics.com/17d4b63ea7e56638f6f642e1c6ee5fd9d16baab402fab30fab7e0269890cfd78_ggvgl_2x.jpg",
       "date": "2026-10-27",
+      "price": 1290000,
+      "rating": [4, 2, 3, 3.5, 5],
       "views": 0
     }
   ],
