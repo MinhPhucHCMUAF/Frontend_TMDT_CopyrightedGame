@@ -379,64 +379,138 @@
       "name": "Steam Wallet",
       "denomination": "50.000đ",
       "price": 50000,
-      "description": "Nạp tiền vào ví Steam",
-      "status": true
+      "description": "Nạp tiền vào ví Steam"
     },
     {
       "id": 2,
       "name": "PlayStation",
       "denomination": "100.000đ",
       "price": 100000,
-      "description": "Thẻ nạp PlayStation Store",
-      "status": true
+      "description": "Thẻ nạp PlayStation Store"
     },
     {
       "id": 3,
       "name": "Xbox",
       "denomination": "100.000đ",
       "price": 100000,
-      "description": "Thẻ nạp Xbox Gift Card",
-      "status": true
+      "description": "Thẻ nạp Xbox Gift Card"
     },
     {
       "id": 4,
       "name": "Nintendo eShop",
       "denomination": "150.000đ",
       "price": 150000,
-      "description": "Thẻ nạp Nintendo eShop",
-      "status": true
+      "description": "Thẻ nạp Nintendo eShop"
     },
     {
       "id": 5,
       "name": "Battle.net",
       "denomination": "100.000đ",
       "price": 100000,
-      "description": "Nạp tiền vào tài khoản Battle.net",
-      "status": true
+      "description": "Nạp tiền vào tài khoản Battle.net"
     },
     {
       "id": 6,
       "name": "Garena",
       "denomination": "20.000đ",
       "price": 20000,
-      "description": "Thẻ nạp Garena",
-      "status": true
+      "description": "Thẻ nạp Garena"
     },
     {
       "id": 7,
       "name": "Riot Games",
       "denomination": "200.000đ",
       "price": 200000,
-      "description": "Thẻ nạp Riot Points (RP)",
-      "status": true
+      "description": "Thẻ nạp Riot Points (RP)"
     },
     {
       "id": 8,
       "name": "VTC",
       "denomination": "100.000đ",
       "price": 100000,
-      "description": "Thẻ nạp VTC Game",
-      "status": true
+      "description": "Thẻ nạp VTC Game"
+    }
+  ],
+  "vouchers": [
+    {
+      "id": 1,
+      "voucherName": "Giảm giá mùa hè",
+      "voucherCode": "SUMMER50",
+      "discountAmount": 50000,
+      "description": "Giảm 50.000đ cho đơn hàng bất kỳ",
+      "voucherImage": "/img/voucher1.png",
+      "createdAt": "2026-10-01",
+      "expiredAt": "2026-12-31"
+    },
+    {
+      "id": 2,
+      "voucherName": "Ưu đãi khách hàng mới",
+      "voucherCode": "WELCOME100",
+      "discountAmount": 100000,
+      "description": "Giảm 100.000đ cho khách hàng mới",
+      "voucherImage": "/img/voucher2.png",
+      "createdAt": "2026-10-15",
+      "expiredAt": "2026-11-30"
+    },
+    {
+      "id": 3,
+      "voucherName": "Tri ân thành viên Gold",
+      "voucherCode": "GOLDVIP",
+      "discountAmount": 150000,
+      "description": "Giảm 150.000đ dành riêng cho thành viên hạng Gold",
+      "voucherImage": "/img/voucher3.png",
+      "createdAt": "2026-11-01",
+      "expiredAt": "2026-12-15"
+    },
+    {
+      "id": 4,
+      "voucherName": "Giảm giá giữa tháng",
+      "voucherCode": "MIDMONTH",
+      "discountAmount": 30000,
+      "description": "Giảm 30.000đ cho đơn hàng từ 200.000đ",
+      "voucherImage": "/img/voucher4.png",
+      "createdAt": "2026-11-10",
+      "expiredAt": "2026-11-20"
+    },
+    {
+      "id": 5,
+      "voucherName": "Miễn phí vận chuyển",
+      "voucherCode": "FREESHIP20",
+      "discountAmount": 20000,
+      "description": "Hỗ trợ 20.000đ phí vận chuyển cho đơn từ 150.000đ",
+      "voucherImage": "/img/voucher5.png",
+      "createdAt": "2026-11-01",
+      "expiredAt": "2026-11-30"
+    },
+    {
+      "id": 6,
+      "voucherName": "Săn sale Black Friday",
+      "voucherCode": "BLACKFRIDAY",
+      "discountAmount": 200000,
+      "description": "Giảm cực sốc 200.000đ cho đơn hàng từ 1.000.000đ",
+      "voucherImage": "/img/voucher6.png",
+      "createdAt": "2026-11-20",
+      "expiredAt": "2026-11-28"
+    },
+    {
+      "id": 7,
+      "voucherName": "Món quà sinh nhật",
+      "voucherCode": "HAPPYBDAY",
+      "discountAmount": 80000,
+      "description": "Ưu đãi mừng sinh nhật khách hàng trong tháng",
+      "voucherImage": "/img/voucher7.png",
+      "createdAt": "2026-10-01",
+      "expiredAt": "2026-12-31"
+    },
+    {
+      "id": 8,
+      "voucherName": "Chào tháng 12",
+      "voucherCode": "DECEMBER30",
+      "discountAmount": 30000,
+      "description": "Giảm ngay 30.000đ mừng tháng cuối năm",
+      "voucherImage": "/img/voucher8.png",
+      "createdAt": "2026-12-01",
+      "expiredAt": "2026-12-31"
     }
   ]
 }

@@ -14,10 +14,13 @@ import { API_URL } from "../../api/api";
 import { CategoryCardHome } from "./CategoryCardHome";
 import { GameCard } from "./GameCard";
 import { Publisher } from "./Publisher";
+import { Promotion } from "./PromotionBanner";
 function Home() {
   const [games, setGames] = useState([]);
   const [gamesCard, setGamesCard] = useState([]);
   const [publisher, setPublisher] = useState([]);
+  const [voucher, setVoucher] = useState([]);
+
   const [categoryGames, setCategoryGames] = useState([]);
   const [gamesFilter, setGamesFilter] = useState(null);
 
@@ -28,14 +31,17 @@ function Home() {
         const resCategory = await fetch(`${API_URL}/category-game`);
         const resGamesCard = await fetch(`${API_URL}/gameCards`);
         const resPublisher = await fetch(`${API_URL}/publisher-game`);
+        const resVoucher = await fetch(`${API_URL}/vouchers`);
         const dataGames = await resGames.json();
         const dataCategory = await resCategory.json();
         const dataGamesCard = await resGamesCard.json();
         const dataPublisher = await resPublisher.json();
+        const dataVoucher = await resVoucher.json();
         setGames(dataGames);
         setCategoryGames(dataCategory);
         setGamesCard(dataGamesCard);
         setPublisher(dataPublisher);
+        setVoucher(dataVoucher);
       } catch (err) {
         console.log(err);
       }
@@ -160,7 +166,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="row g-3 mb-3 mt-3 features-banner">
+      <div className="row g-3 mb-3 mt-3 features-banner border border-2 border-white">
         <div className="col-6 col-lg-3">
           <div className="feature d-flex justify-content-between align-items-center gap-3 ">
             <FontAwesomeIcon
@@ -214,6 +220,17 @@ function Home() {
           </div>
         </div>
       </div>
+      <div className="row g-3 mb-3 mt-3 promotion-banner">
+        <div className="d-flex flex-wrap justify-content-between align-items-center gap-3 text-white">
+          <h4>DANH SÁCH VOUCHER GIẢM GIÁ</h4>
+        </div>
+        <div className="row row-cols-2 row-cols-lg-4 g-3">
+          {voucher.slice(0, 4).map((v: any) => (
+            <Promotion key={v.id} promotion={v} />
+          ))}
+        </div>
+      </div>
+
       <div className="row g-3 mb-3 mt-3 panel-games ">
         <div className="d-flex flex-wrap justify-content-between align-items-center gap-3 text-white">
           <h4>Tất cả các game</h4>
@@ -233,8 +250,13 @@ function Home() {
         </div>
       </div>
       <div className="row g-3 mb-3 mt-3 card-games">
-        <div className="text-white d-flex flex-column justify-content-between gap-3  ">
-          <h4>Thẻ nạp game</h4>
+        <div className="text-white">
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <h4>Thẻ nạp game</h4>
+            <Link to={"#"}>
+              Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
+            </Link>
+          </div>
           <div className="row row-cols-4 g-2 gap-2 justify-content-between">
             {gamesCard.slice(0, 4).map((gc: any) => (
               <GameCard key={gc.id} gameCards={gc} />
@@ -243,8 +265,14 @@ function Home() {
         </div>
       </div>
       <div className="row g-3 mb-3 mt-3 publisher-games">
-        <div className="text-white d-flex flex-column justify-content-between gap-3 ">
-          <h4>Nhà phát hành game</h4>
+        <div className="text-white">
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            {" "}
+            <h4>Nhà phát hành game</h4>
+            <Link to={"#"}>
+              Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
+            </Link>
+          </div>
           <div className="row row-cols-4 g-2 gap-2 justify-content-between">
             {publisher.slice(0, 4).map((pub: any) => (
               <Publisher key={pub.id} publisher={pub} />
