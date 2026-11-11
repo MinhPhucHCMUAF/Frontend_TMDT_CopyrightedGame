@@ -3,6 +3,7 @@ import { Layout } from "./Layout.tsx";
 import Home from "../components/home/Home.tsx";
 import News from "../components/news/News.tsx";
 import NewsDetail from "../components/news/NewsDetail.tsx";
+import GameProducts from "../components/products/games.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "tin-tuc/:id",
-        element: <NewsDetail/>,
+        element: <NewsDetail />,
+      },
+      {
+        path: "game",
+        element: <GameProducts />,
       },
     ],
   },
