@@ -437,8 +437,8 @@
       "voucherName": "Giảm giá mùa hè",
       "voucherCode": "SUMMER50",
       "discountAmount": 50000,
-      "description": "Giảm 50.000đ cho đơn hàng bất kỳ",
-      "voucherImage": "/img/voucher1.png",
+      "description": "Giảm cho đơn hàng bất kỳ",
+      "voucherImage": "https://res.cloudinary.com/pvkz2sam/image/upload/v1794406274/voucher1.png",
       "createdAt": "2026-10-01",
       "expiredAt": "2026-12-31"
     },
@@ -447,8 +447,8 @@
       "voucherName": "Ưu đãi khách hàng mới",
       "voucherCode": "WELCOME100",
       "discountAmount": 100000,
-      "description": "Giảm 100.000đ cho khách hàng mới",
-      "voucherImage": "/img/voucher2.png",
+      "description": "Giảm cho khách hàng mới",
+      "voucherImage": "https://res.cloudinary.com/pvkz2sam/image/upload/v1794405673/voucher2.png",
       "createdAt": "2026-10-15",
       "expiredAt": "2026-11-30"
     },
@@ -458,7 +458,7 @@
       "voucherCode": "GOLDVIP",
       "discountAmount": 150000,
       "description": "Giảm 150.000đ dành riêng cho thành viên hạng Gold",
-      "voucherImage": "/img/voucher3.png",
+      "voucherImage": "https://res.cloudinary.com/pvkz2sam/image/upload/v1794405815/voucher3.png",
       "createdAt": "2026-11-01",
       "expiredAt": "2026-12-15"
     },
@@ -468,7 +468,7 @@
       "voucherCode": "MIDMONTH",
       "discountAmount": 30000,
       "description": "Giảm 30.000đ cho đơn hàng từ 200.000đ",
-      "voucherImage": "/img/voucher4.png",
+      "voucherImage": "https://res.cloudinary.com/pvkz2sam/image/upload/v1794406110/voucher4.png",
       "createdAt": "2026-11-10",
       "expiredAt": "2026-11-20"
     },

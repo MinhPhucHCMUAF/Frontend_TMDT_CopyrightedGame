@@ -6,6 +6,7 @@ import {
   faBolt,
   faCreditCard,
   faRibbon,
+  faTicket,
 } from "@fortawesome/free-solid-svg-icons";
 import "./home.css";
 import { Homecard } from "./Homecard";
@@ -121,22 +122,6 @@ function Home() {
                 />
               </div>
             </div>
-            <button
-              className="carousel-control-prev"
-              type="button"
-              data-bs-target="#demo"
-              data-bs-slide="prev"
-            >
-              <span className="carousel-control-prev-icon"></span>
-            </button>
-            <button
-              className="carousel-control-next"
-              type="button"
-              data-bs-target="#demo"
-              data-bs-slide="next"
-            >
-              <span className="carousel-control-next-icon"></span>
-            </button>
           </div>
         </div>
         <div className="col-lg-5 d-flex flex-column gap-3">
@@ -222,7 +207,23 @@ function Home() {
       </div>
       <div className="row g-3 mb-3 mt-3 promotion-banner">
         <div className="d-flex flex-wrap justify-content-between align-items-center gap-3 text-white">
-          <h4>DANH SÁCH VOUCHER GIẢM GIÁ</h4>
+          <div className="d-flex justify-content-between align-items-center gap-3">
+            <span>
+              <FontAwesomeIcon
+                icon={faTicket}
+                style={{ fontSize: "30px", color: "yellow" }}
+              />
+            </span>
+            <div>
+              <h4>DANH SÁCH VOUCHER GAME</h4>
+              <small className="text-warning  fw-semibold">
+                Danh sách các chương trình khuyến mãi
+              </small>
+            </div>
+          </div>
+          <Link to={"#"} className="text-warning fw-bold">
+            Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
+          </Link>
         </div>
         <div className="row row-cols-2 row-cols-lg-4 g-3">
           {voucher.slice(0, 4).map((v: any) => (
@@ -230,7 +231,6 @@ function Home() {
           ))}
         </div>
       </div>
-
       <div className="row g-3 mb-3 mt-3 panel-games ">
         <div className="d-flex flex-wrap justify-content-between align-items-center gap-3 text-white">
           <h4>Tất cả các game</h4>
@@ -249,6 +249,14 @@ function Home() {
           ))}
         </div>
       </div>
+      <div className="row g-3 mb-3 mt-3 panel-news">
+        <div className="d-flex flex-wrap justify-content-between align-items-center gap-3 text-white">
+          <h4>Xem tin tức</h4>
+          <Link to={"#"}>
+            Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
+          </Link>
+        </div>
+      </div>
       <div className="row g-3 mb-3 mt-3 card-games">
         <div className="text-white">
           <div className="d-flex justify-content-between align-items-center mb-3">
@@ -258,7 +266,7 @@ function Home() {
             </Link>
           </div>
           <div className="row row-cols-4 g-2 gap-2 justify-content-between">
-            {gamesCard.slice(0, 4).map((gc: any) => (
+            {gamesCard.slice(0, 3).map((gc: any) => (
               <GameCard key={gc.id} gameCards={gc} />
             ))}
           </div>
@@ -267,14 +275,13 @@ function Home() {
       <div className="row g-3 mb-3 mt-3 publisher-games">
         <div className="text-white">
           <div className="d-flex justify-content-between align-items-center mb-3">
-            {" "}
-            <h4>Nhà phát hành game</h4>
+            <h4>Nhà phát hành</h4>
             <Link to={"#"}>
               Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
             </Link>
           </div>
           <div className="row row-cols-4 g-2 gap-2 justify-content-between">
-            {publisher.slice(0, 4).map((pub: any) => (
+            {publisher.slice(0, 3).map((pub: any) => (
               <Publisher key={pub.id} publisher={pub} />
             ))}
           </div>
