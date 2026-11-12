@@ -217,7 +217,9 @@ function Home() {
         </div>
         <div className="row row-cols-2  row-cols-md-2 row-cols-xl-4 g-4 ">
           {filter.slice(0, 4).map((game: any) => (
-            <Homecard key={game.id} game={game} />
+            <div className="col">
+              <Homecard key={game.id} game={game} />
+            </div>
           ))}
         </div>
       </div>

@@ -30,24 +30,26 @@ export function useProductData() {
     };
     loadDataProduct();
   }, []);
-  const filterGame =
-    gamesFilter === null
-      ? games
-      : games.filter((val: any) => Number(val.id) === Number(gamesFilter));
 
-  const filterPublisher =
-    pubFilter === null
-      ? games
-      : games.filter((val: any) => Number(val.id) === Number(pubFilter));
+  const filter = games.filter((val: any) => {
+    const filterGame =
+      gamesFilter === null
+        ? games
+        : Number(val.categoryID) === Number(gamesFilter);
+    const filterPublisher =
+      pubFilter === null
+        ? games
+        : Number(val.publisherID) === Number(pubFilter);
+    return filterGame && filterPublisher;
+  });
+
   return {
-    games,
     publisher,
-    gamesFilter,
-    pubFilter,
-    setGamesFilter,
-    setPubFilter,
-    filterGame,
-    filterPublisher,
     categoryGames,
+    gamesFilter,
+    setGamesFilter,
+    pubFilter,
+    setPubFilter,
+    filter,
   };
 }

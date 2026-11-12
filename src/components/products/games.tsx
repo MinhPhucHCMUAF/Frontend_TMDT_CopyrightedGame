@@ -3,19 +3,19 @@ import { Homecard } from "../home/Homecard";
 import "./game.css";
 function GameProducts() {
   const {
+    publisher,
     categoryGames,
-    filterGame,
     gamesFilter,
     setGamesFilter,
-    publisher,
     pubFilter,
     setPubFilter,
+    filter,
   } = useProductData();
 
   return (
     <div className="container py-2">
-      <div className="d-flex row justify-content-between">
-        <div className="col-3 text-white">
+      <div className="row g-3 mb-3 mt-3">
+        <div className="col-12 col-lg-3 text-white">
           <aside className="filter">
             <div className="d-flex justify-content-between align-items-center mb-3">
               <h3>Bộ lọc</h3>
@@ -32,7 +32,6 @@ function GameProducts() {
                     type="radio"
                     name="category"
                     id={cate.id}
-                    value={cate.id}
                     checked={Number(gamesFilter) === Number(cate.id)}
                     onChange={() => setGamesFilter(cate.id)}
                   />
@@ -53,7 +52,6 @@ function GameProducts() {
                     type="radio"
                     name="publish"
                     id={p.id}
-                    value={p.id}
                     checked={Number(pubFilter) === Number(p.id)}
                     onChange={() => setPubFilter(p.id)}
                   />
@@ -103,9 +101,9 @@ function GameProducts() {
             </div>
           </aside>
         </div>
-        <div className="col-9">
-          <div className="row row-cols-2  row-cols-md-2 row-cols-xl-3 g-4 ">
-            {filterGame.map((game: any) => (
+        <div className="col-12 col-lg-9">
+          <div className=" row row-cols-1 row-cols-xl-3 g-4 ">
+            {filter.map((game: any) => (
               <Homecard key={game.id} game={game} />
             ))}
           </div>
