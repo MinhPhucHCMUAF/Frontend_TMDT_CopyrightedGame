@@ -18,11 +18,13 @@ export function useHomeData() {
         const resGamesCard = await fetch(`${API_URL}/gameCards`);
         const resPublisher = await fetch(`${API_URL}/publisher-game`);
         const resVoucher = await fetch(`${API_URL}/vouchers`);
+
         const dataGames = await resGames.json();
         const dataCategory = await resCategory.json();
         const dataGamesCard = await resGamesCard.json();
         const dataPublisher = await resPublisher.json();
         const dataVoucher = await resVoucher.json();
+
         setGames(dataGames);
         setCategoryGames(dataCategory);
         setGamesCard(dataGamesCard);

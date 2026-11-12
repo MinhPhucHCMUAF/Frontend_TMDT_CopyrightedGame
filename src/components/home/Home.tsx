@@ -14,7 +14,7 @@ import { CategoryCardHome } from "./CategoryCardHome";
 import { GameCard } from "./GameCard";
 import { Publisher } from "./Publisher";
 import { Promotion } from "./PromotionBanner";
-import { useHomeData } from "../../hooks/useGameData";
+import { useHomeData } from "../../hooks/useHomeData";
 function Home() {
   const {
     categoryGames,
