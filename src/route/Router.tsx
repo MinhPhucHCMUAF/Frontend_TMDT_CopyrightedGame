@@ -4,6 +4,7 @@ import Home from "../components/home/Home.tsx";
 import News from "../components/news/News.tsx";
 import NewsDetail from "../components/news/NewsDetail.tsx";
 import GameProducts from "../components/products/Games.tsx";
+import Contact from "../components/contact/Contact.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "game",
         element: <GameProducts />,
+      },
+      {
+        path: "lien-he",
+        element: <Contact />,
       },
     ],
   },

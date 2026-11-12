@@ -14,7 +14,10 @@ import { CategoryCardHome } from "./CategoryCardHome";
 import { GameCard } from "./GameCard";
 import { Publisher } from "./Publisher";
 import { Promotion } from "./PromotionBanner";
+import { NewsCard } from "../news/NewsCard";
+import "../news/newsstyle.css";
 import { useHomeData } from "../../hooks/useHomeData";
+import { useNewsData } from "../../hooks/useNewsData";
 function Home() {
   const {
     categoryGames,
@@ -25,6 +28,7 @@ function Home() {
     setGamesFilter,
     filter,
   } = useHomeData();
+  const { news } = useNewsData();
 
   return (
     <div className="container py-2">
@@ -226,12 +230,22 @@ function Home() {
       <div className="row g-3 mb-3 mt-3 panel-news">
         <div className="d-flex flex-wrap justify-content-between align-items-center gap-3 text-white">
           <h4>Xem tin tức</h4>
-          <Link to={"#"}>
+          <Link to={"/tin-tuc"}>
             Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </div>
+        <div className="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
+          {[...news]
+            .sort((a: any, b: any) => b.date.localeCompare(a.date))
+            .slice(0, 4)
+            .map((n: any) => (
+              <div className="col" key={n.id}>
+                <NewsCard news={n} />
+              </div>
+            ))}
+        </div>
       </div>
-      <div className="row g-3 mb-3 mt-3 card-games">
+      <div className="row g-2 mb-3 mt-3 card-games">
         <div className="text-white">
           <div className="d-flex justify-content-between align-items-center mb-3">
             <h4>Thẻ nạp game</h4>
@@ -239,7 +253,7 @@ function Home() {
               Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
             </Link>
           </div>
-          <div className="row row-cols-4 g-2 gap-2 justify-content-between">
+          <div className="row row-cols-4 g-2  justify-content-between">
             {gamesCard.slice(0, 3).map((gc: any) => (
               <GameCard key={gc.id} gameCards={gc} />
             ))}

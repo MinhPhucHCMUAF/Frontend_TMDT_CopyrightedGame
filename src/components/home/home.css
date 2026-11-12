@@ -87,7 +87,8 @@ body {
   padding: 10px;
 }
 .card-games {
-  padding: 10px;
+  background-color: #101e33;
+  padding: 15px;
 }
 .game-link {
   color: inherit;
@@ -105,7 +106,12 @@ body {
   color: red;
 }
 .game-card {
+  background-color: #101e33;
   box-shadow: 5px 3px 20px rgb(98, 93, 93);
+}
+.publisher-games {
+  background-color: #101e33;
+  padding: 15px;
 }
 .card-publish {
   width: 100%;
