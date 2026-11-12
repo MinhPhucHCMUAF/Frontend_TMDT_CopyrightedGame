@@ -16,11 +16,14 @@ import { CategoryCardHome } from "./CategoryCardHome";
 import { GameCard } from "./GameCard";
 import { Publisher } from "./Publisher";
 import { Promotion } from "./PromotionBanner";
+import { NewsCard } from "../news/NewsCard";
+import "../news/newsstyle.css";
 function Home() {
   const [games, setGames] = useState([]);
   const [gamesCard, setGamesCard] = useState([]);
   const [publisher, setPublisher] = useState([]);
   const [voucher, setVoucher] = useState([]);
+  const [news, setNews] = useState([]);
 
   const [categoryGames, setCategoryGames] = useState([]);
   const [gamesFilter, setGamesFilter] = useState(null);
@@ -33,16 +36,19 @@ function Home() {
         const resGamesCard = await fetch(`${API_URL}/gameCards`);
         const resPublisher = await fetch(`${API_URL}/publisher-game`);
         const resVoucher = await fetch(`${API_URL}/vouchers`);
+        const resNews = await fetch(`${API_URL}/news`);
         const dataGames = await resGames.json();
         const dataCategory = await resCategory.json();
         const dataGamesCard = await resGamesCard.json();
         const dataPublisher = await resPublisher.json();
         const dataVoucher = await resVoucher.json();
+        const dataNews = await resNews.json();
         setGames(dataGames);
         setCategoryGames(dataCategory);
         setGamesCard(dataGamesCard);
         setPublisher(dataPublisher);
         setVoucher(dataVoucher);
+        setNews(dataNews);
       } catch (err) {
         console.log(err);
       }
@@ -252,9 +258,16 @@ function Home() {
       <div className="row g-3 mb-3 mt-3 panel-news">
         <div className="d-flex flex-wrap justify-content-between align-items-center gap-3 text-white">
           <h4>Xem tin tức</h4>
-          <Link to={"#"}>
+          <Link to={"/tin-tuc"}>
             Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
           </Link>
+        </div>
+        <div className="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
+          {[...news].sort((a: any, b: any) => b.date.localeCompare(a.date)).slice(0, 4).map((n: any) => (
+            <div className="col" key={n.id}>
+              <NewsCard news={n} />
+            </div>
+          ))}
         </div>
       </div>
       <div className="row g-3 mb-3 mt-3 card-games">

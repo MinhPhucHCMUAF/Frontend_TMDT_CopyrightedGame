@@ -245,3 +245,12 @@
     color: var(--news-muted);
     font-size: 0.75rem;
 }
+
+.panel-news {
+    --news-surface: #13213f;
+    --news-border: #263a63;
+    --news-text: #e6ecf5;
+    --news-muted: #a6b3c8;
+    --news-red: #dc3545;
+    --news-yellow: #ffb703;
+}
