@@ -144,7 +144,7 @@ export function Header() {
             <li className="nav-item col text-center">
               <NavLink
                 className="nav-link text-white fw-semibold text-nowrap"
-                to={"/"}
+                to={"/lien-he"}
               >
                 Liên hệ
               </NavLink>
