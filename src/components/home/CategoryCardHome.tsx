@@ -8,7 +8,7 @@ export function CategoryCardHome({
       {categoryGames.map((cate: any) => (
         <button
           key={cate.id}
-          className={`btn ${gamesFilter === cate.id ? "btn-primary" : "btn-info"}`}
+          className="btn btn-primary"
           onClick={() =>
             setGamesFilter(gamesFilter === cate.id ? null : cate.id)
           }

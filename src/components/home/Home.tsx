@@ -10,55 +10,25 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./home.css";
 import { Homecard } from "./Homecard";
-import { useEffect, useState } from "react";
-import { API_URL } from "../../api/api";
 import { CategoryCardHome } from "./CategoryCardHome";
 import { GameCard } from "./GameCard";
 import { Publisher } from "./Publisher";
 import { Promotion } from "./PromotionBanner";
 import { NewsCard } from "../news/NewsCard";
 import "../news/newsstyle.css";
+import { useHomeData } from "../../hooks/useHomeData";
+import { useNewsData } from "../../hooks/useNewsData";
 function Home() {
-  const [games, setGames] = useState([]);
-  const [gamesCard, setGamesCard] = useState([]);
-  const [publisher, setPublisher] = useState([]);
-  const [voucher, setVoucher] = useState([]);
-  const [news, setNews] = useState([]);
-
-  const [categoryGames, setCategoryGames] = useState([]);
-  const [gamesFilter, setGamesFilter] = useState(null);
-
-  useEffect(() => {
-    const loadGame = async () => {
-      try {
-        const resGames = await fetch(`${API_URL}/product-game`);
-        const resCategory = await fetch(`${API_URL}/category-game`);
-        const resGamesCard = await fetch(`${API_URL}/gameCards`);
-        const resPublisher = await fetch(`${API_URL}/publisher-game`);
-        const resVoucher = await fetch(`${API_URL}/vouchers`);
-        const resNews = await fetch(`${API_URL}/news`);
-        const dataGames = await resGames.json();
-        const dataCategory = await resCategory.json();
-        const dataGamesCard = await resGamesCard.json();
-        const dataPublisher = await resPublisher.json();
-        const dataVoucher = await resVoucher.json();
-        const dataNews = await resNews.json();
-        setGames(dataGames);
-        setCategoryGames(dataCategory);
-        setGamesCard(dataGamesCard);
-        setPublisher(dataPublisher);
-        setVoucher(dataVoucher);
-        setNews(dataNews);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    loadGame();
-  }, []);
-  const filter =
-    gamesFilter === null
-      ? games
-      : games.filter((f: any) => Number(f.categoryID) === Number(gamesFilter));
+  const {
+    categoryGames,
+    gamesFilter,
+    voucher,
+    publisher,
+    gamesCard,
+    setGamesFilter,
+    filter,
+  } = useHomeData();
+  const { news } = useNewsData();
 
   return (
     <div className="container py-2">
@@ -251,7 +221,9 @@ function Home() {
         </div>
         <div className="row row-cols-2  row-cols-md-2 row-cols-xl-4 g-4 ">
           {filter.slice(0, 4).map((game: any) => (
-            <Homecard key={game.id} game={game} />
+            <div className="col">
+              <Homecard key={game.id} game={game} />
+            </div>
           ))}
         </div>
       </div>
@@ -263,14 +235,17 @@ function Home() {
           </Link>
         </div>
         <div className="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
-          {[...news].sort((a: any, b: any) => b.date.localeCompare(a.date)).slice(0, 4).map((n: any) => (
-            <div className="col" key={n.id}>
-              <NewsCard news={n} />
-            </div>
-          ))}
+          {[...news]
+            .sort((a: any, b: any) => b.date.localeCompare(a.date))
+            .slice(0, 4)
+            .map((n: any) => (
+              <div className="col" key={n.id}>
+                <NewsCard news={n} />
+              </div>
+            ))}
         </div>
       </div>
-      <div className="row g-3 mb-3 mt-3 card-games">
+      <div className="row g-2 mb-3 mt-3 card-games">
         <div className="text-white">
           <div className="d-flex justify-content-between align-items-center mb-3">
             <h4>Thẻ nạp game</h4>
@@ -278,7 +253,7 @@ function Home() {
               Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
             </Link>
           </div>
-          <div className="row row-cols-4 g-2 gap-2 justify-content-between">
+          <div className="row row-cols-4 g-2  justify-content-between">
             {gamesCard.slice(0, 3).map((gc: any) => (
               <GameCard key={gc.id} gameCards={gc} />
             ))}

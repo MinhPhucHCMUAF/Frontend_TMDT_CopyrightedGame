@@ -55,68 +55,16 @@ export function Header() {
       </nav>
       <nav className="mt-2 p-1" id="navbar-2">
         <div className="container d-flex align-items-center justify-content-center flex-wrap gap-2">
-          <div className="dropdown nav-item">
-            <button
-              className="text-white fw-semibold btn rounded-0 d-flex align-items-center gap-2 dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <FontAwesomeIcon icon={faBars} />
-              Danh sách sản phẩm
-            </button>
-            <ul className="dropdown-menu dropdown-menu-dark mt-0 rounded-0">
-              <li>
-                <Link
-                  to="#"
-                  className="dropdown-item d-flex align-items-center gap-3 py-2"
-                >
-                  <strong>Game Stream</strong>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="dropdown-item d-flex align-items-center gap-3 py-2"
-                >
-                  <strong>Game Epic Games</strong>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="dropdown-item d-flex align-items-center gap-3 py-2"
-                >
-                  <strong>Game GOG</strong>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="dropdown-item d-flex align-items-center gap-3 py-2"
-                >
-                  <strong>Game Xbox</strong>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="dropdown-item d-flex align-items-center gap-3 py-2"
-                >
-                  <strong>Game PlayStation</strong>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="dropdown-item d-flex align-items-center gap-3 py-2"
-                >
-                  <strong>Game Nintendo</strong>
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <ul className="nav nav-menu row row-cols-2 row-cols-sm-4 align-items-center justify-content-center">
+          <ul className="nav nav-menu d-flex flex-wrap align-items-center justify-content-center">
+            <li className="nav-item col text-center">
+              <NavLink
+                className="nav-link active text-white fw-semibold text-nowrap"
+                to={"/game"}
+              >
+                <FontAwesomeIcon icon={faBars} />
+                <span className="ms-2">Danh sách Game</span>
+              </NavLink>
+            </li>
             <li className="nav-item col text-center">
               <NavLink
                 className="nav-link active text-white fw-semibold text-nowrap"

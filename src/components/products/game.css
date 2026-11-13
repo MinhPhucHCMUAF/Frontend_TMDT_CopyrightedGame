@@ -1,0 +1,9 @@
+.filter {
+  width: 100%;
+  max-width: 280px;
+  box-sizing: border-box;
+  background: #222c59;
+  border: 1px solid whitesmoke;
+  border-radius: 12px;
+  padding: 20px;
+}
