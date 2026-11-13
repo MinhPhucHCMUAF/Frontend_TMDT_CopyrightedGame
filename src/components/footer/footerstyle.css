@@ -1,0 +1,10 @@
+.footer-page {
+  background-color: #000033;
+  border-top: 2px solid yellow;
+  font-size: 15px;
+  margin: 0;
+  flex-shrink: 0;
+}
+.footer-content {
+  background-color: #12233a;
+}

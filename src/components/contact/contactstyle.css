@@ -1,0 +1,117 @@
+.contact-page {
+    --contact-bg: #0b1631;
+    --contact-surface: #13213f;
+    --contact-border: #263a63;
+    --contact-text: #e6ecf5;
+    --contact-muted: #a6b3c8;
+    --contact-red: #dc3545;
+    --contact-yellow: #ffb703;
+    background-color: var(--contact-bg);
+    color: var(--contact-text);
+}
+.contact-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0;
+}
+.contact-subtitle {
+    color: var(--contact-muted);
+    margin: 4px 0 24px;
+}
+
+.contact-channel {
+    height: 100%;
+    padding: 20px;
+    background-color: var(--contact-surface);
+    border: 1px solid var(--contact-border);
+    border-radius: 10px;
+}
+.contact-channel-icon {
+    font-size: 1.5rem;
+    color: var(--contact-yellow);
+    margin-bottom: 10px;
+}
+.contact-channel h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.contact-channel p {
+    color: var(--contact-muted);
+    font-size: 0.875rem;
+    margin: 0;
+}
+.contact-channel .contact-channel-main {
+    color: var(--contact-text);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.contact-form,
+.contact-box {
+    padding: 24px;
+    background-color: var(--contact-surface);
+    border: 1px solid var(--contact-border);
+    border-radius: 10px;
+}
+.contact-form-title,
+.contact-box-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+.contact-page .form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+.contact-page .form-control,
+.contact-page .form-select {
+    background-color: var(--contact-bg);
+    border-color: var(--contact-border);
+    color: var(--contact-text);
+}
+.contact-page .form-control::placeholder {
+    color: #6c7a93;
+}
+.contact-page .form-control:focus,
+.contact-page .form-select:focus {
+    border-color: var(--contact-yellow);
+    box-shadow: 0 0 0 0.2rem rgba(255, 183, 3, 0.2);
+}
+.contact-counter {
+    text-align: right;
+    color: var(--contact-muted);
+    font-size: 0.75rem;
+    margin-top: 4px;
+}
+.contact-privacy {
+    color: var(--contact-muted);
+    font-size: 0.8rem;
+    margin: 16px 0;
+}
+.contact-submit {
+    padding: 10px 28px;
+    font-weight: 600;
+}
+
+.contact-quick {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    border-top: 1px solid var(--contact-border);
+    color: var(--contact-text);
+    text-decoration: none;
+}
+.contact-quick:hover {
+    color: var(--contact-yellow);
+}
+.contact-box p {
+    color: var(--contact-muted);
+}
+.contact-map {
+    width: 100%;
+    height: 260px;
+    border: 0;
+    border-radius: 10px;
+}
