@@ -43,6 +43,11 @@ export function useProductData() {
     const filterPrice = Number(val.price) < priceFilter;
     return filterGame && filterPublisher && filterPrice;
   });
+  const removeData = () => {
+    setGamesFilter(null);
+    setPubFilter(null);
+    setPriceFilter(1500000);
+  };
 
   return {
     publisher,
@@ -54,5 +59,6 @@ export function useProductData() {
     filter,
     setPriceFilter,
     priceFilter,
+    removeData,
   };
 }

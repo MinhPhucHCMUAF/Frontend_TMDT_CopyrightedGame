@@ -6,4 +6,14 @@
   border: 1px solid whitesmoke;
   border-radius: 12px;
   padding: 20px;
+  box-shadow: 10px 5px 20px rgba(69, 12, 240, 0.25);
+}
+.filter-header {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #46527e;
+}
+.filter-group {
+  margin-top: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #46527e;
 }

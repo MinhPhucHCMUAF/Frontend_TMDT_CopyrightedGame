@@ -236,43 +236,35 @@
   "publisher-game": [
     {
       "id": 1,
-      "name": "CD PROJEKT RED",
-      "gameCount": 14
+      "name": "CD PROJEKT RED"
     },
     {
       "id": 2,
-      "name": "Larian Studios",
-      "gameCount": 6
+      "name": "Larian Studios"
     },
     {
       "id": 3,
-      "name": "Capcom",
-      "gameCount": 120
+      "name": "Capcom"
     },
     {
       "id": 4,
-      "name": "Ubisoft",
-      "gameCount": 210
+      "name": "Ubisoft"
     },
     {
       "id": 5,
-      "name": "Bandai Namco",
-      "gameCount": 160
+      "name": "Bandai Namco"
     },
     {
       "id": 6,
-      "name": "Electronic Arts",
-      "gameCount": 180
+      "name": "Electronic Arts"
     },
     {
       "id": 7,
-      "name": "Game Science",
-      "gameCount": 8
+      "name": "Game Science"
     },
     {
       "id": 8,
-      "name": "Paradox Interactive",
-      "gameCount": 90
+      "name": "Paradox Interactive"
     }
   ],
   "product-game": [
@@ -371,64 +363,6 @@
       "price": 1290000,
       "rating": [4, 2, 3, 3.5, 5],
       "views": 0
-    }
-  ],
-  "gameCards": [
-    {
-      "id": 1,
-      "name": "Steam Wallet",
-      "denomination": "50.000đ",
-      "price": 50000,
-      "description": "Nạp tiền vào ví Steam"
-    },
-    {
-      "id": 2,
-      "name": "PlayStation",
-      "denomination": "100.000đ",
-      "price": 100000,
-      "description": "Thẻ nạp PlayStation Store"
-    },
-    {
-      "id": 3,
-      "name": "Xbox",
-      "denomination": "100.000đ",
-      "price": 100000,
-      "description": "Thẻ nạp Xbox Gift Card"
-    },
-    {
-      "id": 4,
-      "name": "Nintendo eShop",
-      "denomination": "150.000đ",
-      "price": 150000,
-      "description": "Thẻ nạp Nintendo eShop"
-    },
-    {
-      "id": 5,
-      "name": "Battle.net",
-      "denomination": "100.000đ",
-      "price": 100000,
-      "description": "Nạp tiền vào tài khoản Battle.net"
-    },
-    {
-      "id": 6,
-      "name": "Garena",
-      "denomination": "20.000đ",
-      "price": 20000,
-      "description": "Thẻ nạp Garena"
-    },
-    {
-      "id": 7,
-      "name": "Riot Games",
-      "denomination": "200.000đ",
-      "price": 200000,
-      "description": "Thẻ nạp Riot Points (RP)"
-    },
-    {
-      "id": 8,
-      "name": "VTC",
-      "denomination": "100.000đ",
-      "price": 100000,
-      "description": "Thẻ nạp VTC Game"
     }
   ],
   "vouchers": [
