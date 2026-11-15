@@ -16,19 +16,19 @@ export function Footer() {
               <h6 className="fw-bold fs-5">Hỗ trợ khách hàng</h6>
               <p>
                 {" "}
-                <Link to={"/"}>Hotline 1900 6868</Link>
+                <Link to={"/lien-he"}>Hotline 1900 6868</Link>
               </p>
               <p>
                 {" "}
-                <Link to={"/"}>Hướng dẫn mua hàng</Link>
+                <Link to={"/huong-dan"}>Hướng dẫn mua hàng</Link>
               </p>
               <p>
                 {" "}
-                <Link to={"/"}>Hướng dẫn kích hoạt key</Link>
+                <Link to={"/huong-dan"}>Hướng dẫn kích hoạt key</Link>
               </p>
               <p>
                 {" "}
-                <Link to={"/"}>Câu hỏi thường gặp</Link>
+                <Link to={"/cau-hoi-thuong-gap"}>Câu hỏi thường gặp</Link>
               </p>
             </div>
             <div className="col-6 col-lg">
@@ -43,11 +43,11 @@ export function Footer() {
               </p>
               <p>
                 {" "}
-                <Link to={"/"}>Liên hệ hợp tác</Link>
+                <Link to={"/lien-he"}>Liên hệ hợp tác</Link>
               </p>
               <p>
                 {" "}
-                <Link to={"/"}>Tin tức game</Link>
+                <Link to={"/tin-tuc"}>Tin tức game</Link>
               </p>
             </div>
             <div className="col-6 col-lg">
@@ -58,15 +58,15 @@ export function Footer() {
               </p>
               <p>
                 {" "}
-                <Link to={"/"}>Chính sách bảo mật</Link>
+                <Link to={"/chinh-sach-bao-mat"}>Chính sách bảo mật</Link>
               </p>
               <p>
                 {" "}
-                <Link to={"/"}>Đổi trả và hoàn tiền</Link>
+                <Link to={"/chinh-sach-doi-tra"}>Đổi trả và hoàn tiền</Link>
               </p>
               <p>
                 {" "}
-                <Link to={"/"}>Bảo hành key</Link>
+                <Link to={"/chinh-sach-doi-tra"}>Bảo hành key</Link>
               </p>
             </div>
             <div className="col-6 col-lg">

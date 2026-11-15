@@ -1,0 +1,227 @@
+.info-page {
+    --info-bg: #0b1631;
+    --info-surface: #13213f;
+    --info-border: #263a63;
+    --info-text: #e6ecf5;
+    --info-muted: #a6b3c8;
+    --info-red: #dc3545;
+    --info-yellow: #ffb703;
+    background-color: var(--info-bg);
+    color: var(--info-text);
+}
+.info-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0;
+}
+.info-subtitle {
+    color: var(--info-muted);
+    margin: 4px 0 24px;
+}
+.info-box {
+    padding: 24px;
+    background-color: var(--info-surface);
+    border: 1px solid var(--info-border);
+    border-radius: 10px;
+}
+.info-box-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+.info-empty {
+    padding: 48px 16px;
+    text-align: center;
+    color: var(--info-muted);
+    border: 1px dashed var(--info-border);
+    border-radius: 10px;
+}
+.info-help {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px 24px;
+    background-color: var(--info-surface);
+    border: 1px solid var(--info-border);
+    border-radius: 10px;
+}
+
+.info-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+.info-tab {
+    padding: 6px 16px;
+    border: 1px solid var(--info-border);
+    border-radius: 20px;
+    background-color: var(--info-bg);
+    color: var(--info-text);
+    font-size: 0.875rem;
+}
+.info-tab:hover {
+    border-color: var(--info-red);
+}
+.info-tab.active {
+    background-color: var(--info-red);
+    border-color: var(--info-red);
+    color: #fff;
+    font-weight: 600;
+}
+
+.guide-step {
+    height: 100%;
+    padding: 20px;
+    background-color: var(--info-bg);
+    border: 1px solid var(--info-border);
+    border-radius: 10px;
+}
+.guide-step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--info-yellow);
+    color: #161a22;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+.guide-step h3 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+.guide-step p,
+.guide-list p {
+    color: var(--info-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+.guide-list {
+    margin: 0;
+    padding-left: 20px;
+}
+.guide-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--info-border);
+}
+.guide-list li:last-child {
+    border-bottom: none;
+}
+.guide-list li::marker {
+    color: var(--info-yellow);
+    font-weight: 700;
+}
+
+.info-search {
+    position: relative;
+}
+.info-search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--info-muted);
+}
+.info-search .form-control {
+    padding-left: 40px;
+    background-color: var(--info-surface);
+    border-color: var(--info-border);
+    color: var(--info-text);
+}
+.info-search .form-control::placeholder {
+    color: var(--info-muted);
+}
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.faq-item {
+    background-color: var(--info-surface);
+    border: 1px solid var(--info-border);
+    border-radius: 10px;
+}
+.faq-item.open {
+    border-color: var(--info-yellow);
+}
+.faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 16px 20px;
+    background: none;
+    border: none;
+    color: var(--info-text);
+    font-weight: 600;
+    text-align: left;
+}
+.faq-icon {
+    color: var(--info-muted);
+    transition: transform 0.2s;
+}
+.faq-item.open .faq-icon {
+    transform: rotate(180deg);
+    color: var(--info-yellow);
+}
+.faq-answer {
+    padding: 0 20px 16px;
+    margin: 0;
+    color: var(--info-muted);
+    line-height: 1.7;
+}
+
+.policy-menu {
+    position: sticky;
+    top: 16px;
+}
+.policy-menu a {
+    display: block;
+    padding: 8px 0;
+    border-top: 1px solid var(--info-border);
+    color: var(--info-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.policy-menu a:hover {
+    color: var(--info-yellow);
+}
+.policy-date {
+    color: var(--info-muted);
+    font-size: 0.875rem;
+    margin: 6px 0 16px;
+}
+.policy-summary {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+.policy-section {
+    margin-bottom: 24px;
+    scroll-margin-top: 16px;
+}
+.policy-section h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--info-yellow);
+}
+.policy-section li {
+    color: var(--info-text);
+    line-height: 1.8;
+}
+
+.not-found {
+    max-width: 560px;
+}
+.not-found-code {
+    font-size: 6rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--info-red);
+    margin-bottom: 8px;
+}

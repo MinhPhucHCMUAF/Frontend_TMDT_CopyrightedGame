@@ -513,5 +513,288 @@
       "expiredAt": "2026-12-31"
     }
   ],
-  "contacts": []
+  "contacts": [],
+  "guides": [
+    {
+      "id": "mua-hang",
+      "platform": "Mua hàng",
+      "title": "Các bước mua game trên KHO GAME",
+      "steps": [
+        {
+          "title": "Chọn game",
+          "text": "Tìm game bằng ô tìm kiếm hoặc danh mục. Kiểm tra nền tảng kích hoạt (Steam, GOG, Epic...) và cấu hình yêu cầu trước khi mua."
+        },
+        {
+          "title": "Thêm vào giỏ hàng",
+          "text": "Bấm Mua ngay hoặc Thêm vào giỏ. Nếu có mã giảm giá, bạn nhập ở bước thanh toán."
+        },
+        {
+          "title": "Thanh toán",
+          "text": "Chọn MoMo, ZaloPay, VNPay, thẻ Visa/Mastercard hoặc chuyển khoản. Đơn hàng được xác nhận ngay khi thanh toán thành công."
+        },
+        {
+          "title": "Nhận key",
+          "text": "Key được gửi qua email và hiển thị trong mục Đơn hàng của tôi trong vòng 1–5 phút."
+        }
+      ]
+    },
+    {
+      "id": "steam",
+      "platform": "Steam",
+      "title": "Kích hoạt key trên Steam",
+      "steps": [
+        {
+          "title": "Mở Steam",
+          "text": "Cài đặt và đăng nhập ứng dụng Steam trên máy tính."
+        },
+        {
+          "title": "Chọn kích hoạt sản phẩm",
+          "text": "Vào menu Trò chơi (Games) và chọn Kích hoạt sản phẩm trên Steam."
+        },
+        {
+          "title": "Nhập key",
+          "text": "Dán mã key nhận được qua email, đồng ý điều khoản và bấm Tiếp tục."
+        },
+        {
+          "title": "Tải game",
+          "text": "Game xuất hiện trong Thư viện. Bấm Cài đặt để tải về và bắt đầu chơi."
+        }
+      ]
+    },
+    {
+      "id": "gog",
+      "platform": "GOG",
+      "title": "Kích hoạt key trên GOG",
+      "steps": [
+        {
+          "title": "Đăng nhập GOG",
+          "text": "Đăng nhập tài khoản tại gog.com hoặc ứng dụng GOG Galaxy."
+        },
+        {
+          "title": "Mở trang đổi mã",
+          "text": "Truy cập gog.com/redeem hoặc chọn Thêm game, Đổi mã sản phẩm trong GOG Galaxy."
+        },
+        {
+          "title": "Nhập key",
+          "text": "Dán mã key và bấm Tiếp tục để xác nhận."
+        },
+        {
+          "title": "Cài đặt",
+          "text": "Game được thêm vào thư viện GOG, bấm Cài đặt để tải về."
+        }
+      ]
+    },
+    {
+      "id": "epic",
+      "platform": "Epic Games",
+      "title": "Kích hoạt key trên Epic Games",
+      "steps": [
+        {
+          "title": "Mở Epic Games Launcher",
+          "text": "Đăng nhập tài khoản Epic Games trên ứng dụng hoặc trang store.epicgames.com."
+        },
+        {
+          "title": "Chọn đổi mã",
+          "text": "Bấm vào ảnh đại diện ở góc phải và chọn Đổi mã (Redeem Code)."
+        },
+        {
+          "title": "Nhập key",
+          "text": "Dán mã key, bấm Đổi mã và xác nhận lần nữa."
+        },
+        {
+          "title": "Tải game",
+          "text": "Game xuất hiện trong Thư viện của Epic Games Launcher."
+        }
+      ]
+    },
+    {
+      "id": "xbox",
+      "platform": "Xbox",
+      "title": "Kích hoạt key trên Xbox",
+      "steps": [
+        {
+          "title": "Mở trang đổi mã",
+          "text": "Truy cập microsoft.com/redeem hoặc vào Microsoft Store trên máy Xbox."
+        },
+        {
+          "title": "Đăng nhập",
+          "text": "Đăng nhập tài khoản Microsoft dùng trên máy Xbox hoặc PC."
+        },
+        {
+          "title": "Nhập key",
+          "text": "Nhập mã gồm 25 ký tự và bấm Tiếp theo để xác nhận."
+        },
+        {
+          "title": "Tải game",
+          "text": "Game được thêm vào mục Game và ứng dụng của tôi để tải về."
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": 1,
+      "category": "Mua hàng",
+      "question": "Mua game trên KHO GAME có phải game bản quyền không?",
+      "answer": "Tất cả key bán trên KHO GAME đều là key bản quyền lấy từ nhà phát hành hoặc đại lý chính thức, kích hoạt trên Steam, GOG, Epic Games, Xbox..."
+    },
+    {
+      "id": 2,
+      "category": "Mua hàng",
+      "question": "Bao lâu thì tôi nhận được key sau khi mua?",
+      "answer": "Key được gửi tự động qua email và hiển thị trong mục Đơn hàng của tôi trong vòng 1–5 phút sau khi thanh toán thành công."
+    },
+    {
+      "id": 3,
+      "category": "Mua hàng",
+      "question": "Tôi có cần tạo tài khoản để mua game không?",
+      "answer": "Bạn nên tạo tài khoản để lưu lịch sử đơn hàng, tích điểm và xem lại key đã mua bất cứ lúc nào."
+    },
+    {
+      "id": 4,
+      "category": "Thanh toán",
+      "question": "KHO GAME hỗ trợ những hình thức thanh toán nào?",
+      "answer": "Bạn có thể thanh toán bằng MoMo, ZaloPay, VNPay, thẻ Visa/Mastercard hoặc chuyển khoản ngân hàng."
+    },
+    {
+      "id": 5,
+      "category": "Thanh toán",
+      "question": "Tôi đã thanh toán nhưng đơn hàng chưa được xác nhận?",
+      "answer": "Với chuyển khoản ngân hàng, hệ thống cần 5–15 phút để đối soát. Nếu quá 30 phút, hãy gửi Yêu cầu hỗ trợ kèm ảnh chụp giao dịch."
+    },
+    {
+      "id": 6,
+      "category": "Thanh toán",
+      "question": "Có xuất hóa đơn VAT không?",
+      "answer": "Có. Bạn ghi thông tin công ty khi thanh toán hoặc liên hệ hỗ trợ trong vòng 7 ngày kể từ ngày mua."
+    },
+    {
+      "id": 7,
+      "category": "Kích hoạt key",
+      "question": "Kích hoạt key ở đâu?",
+      "answer": "Mỗi game ghi rõ nền tảng kích hoạt trên trang sản phẩm. Xem trang Hướng dẫn để biết các bước kích hoạt trên Steam, GOG, Epic Games và Xbox."
+    },
+    {
+      "id": 8,
+      "category": "Kích hoạt key",
+      "question": "Key báo lỗi đã được sử dụng thì làm sao?",
+      "answer": "Hãy chụp màn hình thông báo lỗi và gửi Yêu cầu hỗ trợ trong vòng 7 ngày. Chúng tôi sẽ kiểm tra và đổi key mới hoặc hoàn tiền."
+    },
+    {
+      "id": 9,
+      "category": "Kích hoạt key",
+      "question": "Key có bị giới hạn khu vực không?",
+      "answer": "Một số game chỉ kích hoạt được tại khu vực nhất định. Thông tin khu vực được ghi trên trang sản phẩm, hãy kiểm tra trước khi mua."
+    },
+    {
+      "id": 10,
+      "category": "Đổi trả",
+      "question": "Tôi có được hoàn tiền nếu mua nhầm game không?",
+      "answer": "Key chưa được xem và chưa kích hoạt có thể hoàn tiền trong vòng 24 giờ. Key đã hiển thị hoặc đã kích hoạt sẽ không được hoàn."
+    },
+    {
+      "id": 11,
+      "category": "Đổi trả",
+      "question": "Tiền hoàn về đâu và mất bao lâu?",
+      "answer": "Tiền được hoàn về ví KHO GAME ngay lập tức, hoặc về tài khoản ngân hàng trong 3–7 ngày làm việc."
+    },
+    {
+      "id": 12,
+      "category": "Đổi trả",
+      "question": "Bảo hành key kéo dài bao lâu?",
+      "answer": "Mỗi key được bảo hành 7 ngày kể từ ngày mua đối với lỗi không kích hoạt được do nhà cung cấp."
+    }
+  ],
+  "policies": [
+    {
+      "id": "doi-tra",
+      "title": "Chính sách đổi trả và hoàn tiền",
+      "updatedAt": "2026-11-01",
+      "summary": "Quy định về việc đổi key lỗi, hoàn tiền và các trường hợp không áp dụng đổi trả khi mua game bản quyền tại KHO GAME.",
+      "sections": [
+        {
+          "heading": "Phạm vi áp dụng",
+          "paragraphs": [
+            "Chính sách áp dụng cho tất cả key game, thẻ nạp và gói combo mua trực tiếp trên website KHO GAME.",
+            "Do sản phẩm là mã kích hoạt kỹ thuật số, việc đổi trả chỉ áp dụng trong các trường hợp được nêu dưới đây."
+          ]
+        },
+        {
+          "heading": "Trường hợp được đổi key hoặc hoàn tiền",
+          "paragraphs": [
+            "Key báo lỗi đã được sử dụng, không hợp lệ hoặc sai khu vực so với mô tả trên trang sản phẩm.",
+            "Giao sai sản phẩm so với đơn hàng đã đặt.",
+            "Đơn hàng đã thanh toán nhưng không nhận được key sau 24 giờ."
+          ]
+        },
+        {
+          "heading": "Trường hợp không áp dụng",
+          "paragraphs": [
+            "Key đã được kích hoạt thành công trên tài khoản của khách hàng.",
+            "Khách hàng mua nhầm game hoặc đổi ý sau khi đã xem key.",
+            "Máy tính không đáp ứng cấu hình tối thiểu đã ghi trên trang sản phẩm."
+          ]
+        },
+        {
+          "heading": "Thời hạn và cách gửi yêu cầu",
+          "paragraphs": [
+            "Gửi Yêu cầu hỗ trợ trong vòng 7 ngày kể từ ngày mua, kèm mã đơn hàng, mã key và ảnh chụp màn hình thông báo lỗi.",
+            "Bộ phận hỗ trợ phản hồi trong 24 giờ làm việc."
+          ]
+        },
+        {
+          "heading": "Hình thức hoàn tiền",
+          "paragraphs": [
+            "Hoàn vào ví KHO GAME: nhận ngay sau khi yêu cầu được duyệt.",
+            "Hoàn về tài khoản ngân hàng hoặc ví điện tử: từ 3 đến 7 ngày làm việc."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bao-mat",
+      "title": "Chính sách bảo mật thông tin",
+      "updatedAt": "2026-11-01",
+      "summary": "KHO GAME cam kết bảo vệ thông tin cá nhân của khách hàng. Chính sách này giải thích chúng tôi thu thập, sử dụng và bảo vệ dữ liệu như thế nào.",
+      "sections": [
+        {
+          "heading": "Thông tin chúng tôi thu thập",
+          "paragraphs": [
+            "Họ tên, email, số điện thoại khi bạn đăng ký tài khoản hoặc gửi liên hệ.",
+            "Lịch sử đơn hàng, phương thức thanh toán đã chọn và các yêu cầu hỗ trợ.",
+            "Chúng tôi không lưu số thẻ ngân hàng. Việc thanh toán được xử lý bởi các cổng thanh toán đối tác."
+          ]
+        },
+        {
+          "heading": "Mục đích sử dụng",
+          "paragraphs": [
+            "Xử lý đơn hàng, gửi key và hóa đơn qua email.",
+            "Hỗ trợ khách hàng khi có sự cố về đơn hàng hoặc key.",
+            "Gửi thông tin khuyến mãi nếu bạn đồng ý nhận email ưu đãi."
+          ]
+        },
+        {
+          "heading": "Chia sẻ thông tin",
+          "paragraphs": [
+            "KHO GAME không bán hoặc cho thuê thông tin cá nhân của khách hàng.",
+            "Thông tin chỉ được chia sẻ với đối tác thanh toán và vận hành khi cần thiết để hoàn tất đơn hàng, hoặc khi cơ quan nhà nước có yêu cầu theo quy định pháp luật."
+          ]
+        },
+        {
+          "heading": "Bảo vệ dữ liệu",
+          "paragraphs": [
+            "Dữ liệu được truyền qua kết nối mã hóa HTTPS và lưu trữ trên máy chủ có kiểm soát truy cập.",
+            "Bạn nên đặt mật khẩu mạnh và không chia sẻ tài khoản cho người khác."
+          ]
+        },
+        {
+          "heading": "Quyền của khách hàng",
+          "paragraphs": [
+            "Bạn có quyền xem, chỉnh sửa hoặc yêu cầu xóa thông tin cá nhân bằng cách liên hệ bộ phận hỗ trợ.",
+            "Bạn có thể hủy nhận email khuyến mãi bất cứ lúc nào qua liên kết ở cuối mỗi email."
+          ]
+        }
+      ]
+    }
+  ]
 }
