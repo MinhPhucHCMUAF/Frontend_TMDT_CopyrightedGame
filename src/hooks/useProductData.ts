@@ -8,7 +8,7 @@ export function useProductData() {
 
   const [gamesFilter, setGamesFilter] = useState(null);
   const [pubFilter, setPubFilter] = useState(null);
-  const [ratFilter, setRatFilter] = useState(null);
+  const [priceFilter, setPriceFilter] = useState(1500000);
 
   useEffect(() => {
     const loadDataProduct = async () => {
@@ -40,7 +40,8 @@ export function useProductData() {
       pubFilter === null
         ? games
         : Number(val.publisherID) === Number(pubFilter);
-    return filterGame && filterPublisher;
+    const filterPrice = Number(val.price) < priceFilter;
+    return filterGame && filterPublisher && filterPrice;
   });
 
   return {
@@ -51,5 +52,7 @@ export function useProductData() {
     pubFilter,
     setPubFilter,
     filter,
+    setPriceFilter,
+    priceFilter,
   };
 }

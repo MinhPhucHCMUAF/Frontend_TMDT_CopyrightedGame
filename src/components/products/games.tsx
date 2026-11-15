@@ -10,6 +10,8 @@ function GameProducts() {
     pubFilter,
     setPubFilter,
     filter,
+    setPriceFilter,
+    priceFilter,
   } = useProductData();
 
   return (
@@ -63,41 +65,17 @@ function GameProducts() {
             </div>
             <div className="mt-3 mb-3 d-flex flex-column">
               <div>
-                <h4>Đánh giá</h4>
+                <h4>Giá tiền</h4>
               </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="rating"
-                  id="rating"
-                />
-                <label className="form-check-label" htmlFor="rating">
-                  Tất cả
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="rating"
-                  id="rating"
-                />
-                <label className="form-check-label" htmlFor="rating">
-                  Từ 3 sao trở lên
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="rating"
-                  id="rating"
-                />
-                <label className="form-check-label" htmlFor="rating">
-                  Từ 4 sao trở lên
-                </label>
-              </div>
+              <input
+                type="range"
+                id="min"
+                min={1}
+                max={1500000}
+                step={10000}
+                value={priceFilter}
+                onChange={(e) => setPriceFilter(Number(e.target.value))}
+              ></input>
             </div>
           </aside>
         </div>
