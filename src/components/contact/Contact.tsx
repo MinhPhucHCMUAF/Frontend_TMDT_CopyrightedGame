@@ -240,8 +240,11 @@ function Contact() {
                             <Link to="/tin-tuc/8" className="contact-quick">
                                 <FontAwesomeIcon icon={faRotateLeft} /> Cách nhận hoàn tiền khi key lỗi
                             </Link>
-                            <Link to="#" className="contact-quick">
+                            <Link to="/cau-hoi-thuong-gap" className="contact-quick">
                                 <FontAwesomeIcon icon={faCircleQuestion} /> Câu hỏi thường gặp
+                            </Link>
+                            <Link to="/yeu-cau-ho-tro" className="contact-quick">
+                                <FontAwesomeIcon icon={faPaperPlane} /> Gửi yêu cầu hỗ trợ đơn hàng, key lỗi
                             </Link>
                         </div>
                         <div className="contact-box">
