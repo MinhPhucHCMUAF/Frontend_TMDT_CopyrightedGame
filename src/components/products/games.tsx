@@ -1,8 +1,8 @@
 import { useProductData } from "../../hooks/useProductData";
 import { GameListcard } from "../home/GameListcard";
-import "./game.css";
+import "./gameStyles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import { faFilter, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 function GameProducts() {
   const {
     publisher,
@@ -15,11 +15,32 @@ function GameProducts() {
     setPriceFilter,
     priceFilter,
     removeData,
+    keyword,
+    setKeyWord,
   } = useProductData();
-
   return (
     <div className="container py-2">
       <div className="row g-3 mb-3 mt-3">
+        <h1 className="text-white title-lst-game">Các thể loại Games</h1>
+        <p className="text-white">
+          Khám phá hàng ngàn tựa game bản quyền hấp dẫn, đa dạng thể loại với
+          mức giá ưu đãi dành cho bạn.
+        </p>
+        <div className="news-toolbar">
+          <div className="news-search">
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              className="news-search-icon"
+            />
+            <input
+              type="search"
+              className="form-control"
+              placeholder="Tìm tên game..."
+              value={keyword}
+              onChange={(e) => setKeyWord(e.target.value)}
+            />
+          </div>
+        </div>
         <div className="col-12 col-lg-3 text-white">
           <aside className="filter">
             <div className="filter-header d-flex justify-content-between align-items-center mb-3">

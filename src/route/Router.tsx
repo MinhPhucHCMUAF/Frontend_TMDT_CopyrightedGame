@@ -9,6 +9,7 @@ import Guide from "../components/info/Guide.tsx";
 import Faq from "../components/info/Faq.tsx";
 import PolicyPage from "../components/info/PolicyPage.tsx";
 import ErrorPage from "./Error.tsx";
+import Promotion from "../components/promotion/Promotion.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
       {
         path: "chinh-sach-bao-mat",
         element: <PolicyPage key="bao-mat" policyId="bao-mat" />,
+      },
+      {
+        path: "khuyen-mai",
+        element: <Promotion />,
       },
       {
         path: "*",

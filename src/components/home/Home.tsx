@@ -8,15 +8,15 @@ import {
   faRibbon,
   faTicket,
 } from "@fortawesome/free-solid-svg-icons";
-import "./home.css";
+import "./homeStyles.css";
 import { GameListcard } from "./GameListcard";
 import { CategoryCardHome } from "./CategoryCardHome";
-import { Promotion } from "./PromotionBanner";
+import { PromotionCard } from "./PromotionBannerCard";
 import { NewsCard } from "../news/NewsCard";
 import "../news/newsstyle.css";
 import { useHomeData } from "../../hooks/useHomeData";
 import { useNewsData } from "../../hooks/useNewsData";
-import { Publisher } from "./Publisher";
+import { PublisherCard } from "./PublisherCard";
 function Home() {
   const {
     categoryGames,
@@ -201,7 +201,7 @@ function Home() {
         </div>
         <div className="row row-cols-2 row-cols-lg-4 g-3">
           {voucher.slice(0, 4).map((v: any) => (
-            <Promotion key={v.id} promotion={v} />
+            <PromotionCard key={v.id} promotion={v} />
           ))}
         </div>
       </div>
@@ -253,7 +253,7 @@ function Home() {
           </div>
           <div className="row row-cols-4 g-2 gap-2 justify-content-between">
             {publisher.slice(0, 4).map((pub: any) => (
-              <Publisher key={pub.id} publisher={pub} />
+              <PublisherCard key={pub.id} publisher={pub} />
             ))}
           </div>
         </div>

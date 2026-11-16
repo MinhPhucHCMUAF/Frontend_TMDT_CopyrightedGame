@@ -5,6 +5,7 @@ export function useProductData() {
   const [games, setGames] = useState([]);
   const [publisher, setPublisher] = useState([]);
   const [categoryGames, setCategoryGames] = useState([]);
+  const [keyword, setKeyWord] = useState("");
 
   const [gamesFilter, setGamesFilter] = useState(null);
   const [pubFilter, setPubFilter] = useState(null);
@@ -41,7 +42,11 @@ export function useProductData() {
         ? games
         : Number(val.publisherID) === Number(pubFilter);
     const filterPrice = Number(val.price) < priceFilter;
-    return filterGame && filterPublisher && filterPrice;
+    const filterSearch =
+      keyword.trim() === ""
+        ? games
+        : val.title.toLowerCase().includes(keyword.toLowerCase());
+    return filterGame && filterPublisher && filterPrice && filterSearch;
   });
   const removeData = () => {
     setGamesFilter(null);
@@ -60,5 +65,7 @@ export function useProductData() {
     setPriceFilter,
     priceFilter,
     removeData,
+    keyword,
+    setKeyWord,
   };
 }

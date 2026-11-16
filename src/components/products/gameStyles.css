@@ -17,3 +17,17 @@
   padding-bottom: 18px;
   border-bottom: 1px solid #46527e;
 }
+.title-lst-game {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0;
+}
+.form-control,
+.form-control:focus {
+  background-color: #13213f;
+  border-color: #263a63;
+  color: #e6ecf5;
+}
+.news-search-icon {
+  color: #e6ecf5;
+}
