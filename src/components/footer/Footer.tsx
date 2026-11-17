@@ -69,25 +69,6 @@ export function Footer() {
                 <Link to={"/chinh-sach-doi-tra"}>Bảo hành key</Link>
               </p>
             </div>
-            <div className="col-6 col-lg">
-              <h6 className="fw-bold fs-5">Thanh toán</h6>
-              <p>
-                {" "}
-                <Link to={"/"}>MoMo</Link>
-              </p>
-              <p>
-                {" "}
-                <Link to={"/"}>ZaloPay</Link>
-              </p>
-              <p>
-                {" "}
-                <Link to={"/"}>VNPay</Link>
-              </p>
-              <p>
-                {" "}
-                <Link to={"/"}>Visa</Link>
-              </p>
-            </div>
             <div className="col-12 col-lg text-nowrap">
               <h6 className="footer-title mt-4">Kết nối với chúng tôi</h6>
               <div className="footer-tags d-flex gap-3">

@@ -9,7 +9,10 @@ export function GameListcard({ game }: { game: any }) {
       : 0;
   return (
     <div className="card lst-games d-flex flex-column bg-dark text-white h-100">
-      <Link to={"#"} className="game-link text-decoration-none text-white">
+      <Link
+        to={`/game/${game.id}`}
+        className="game-link text-decoration-none text-white"
+      >
         <img src={game.image} className="card-img-top" alt={game.title} />
         <div className="card-body text-center">
           <h5 className="card-title">{game.title}</h5>

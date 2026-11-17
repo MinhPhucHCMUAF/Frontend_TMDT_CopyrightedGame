@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { API_URL } from "../api/api";
 
 export function useProductData() {
-  const [games, setGames] = useState([]);
+  const [games, setGames] = useState<any[]>([]);
   const [publisher, setPublisher] = useState([]);
   const [categoryGames, setCategoryGames] = useState([]);
   const [keyword, setKeyWord] = useState("");
@@ -48,6 +48,9 @@ export function useProductData() {
         : val.title.toLowerCase().includes(keyword.toLowerCase());
     return filterGame && filterPublisher && filterPrice && filterSearch;
   });
+  const getGamebyID = (id: number) => {
+    return games.find((g) => Number(g.id) === Number(id));
+  };
   const removeData = () => {
     setGamesFilter(null);
     setPubFilter(null);
@@ -67,5 +70,6 @@ export function useProductData() {
     removeData,
     keyword,
     setKeyWord,
+    getGamebyID,
   };
 }

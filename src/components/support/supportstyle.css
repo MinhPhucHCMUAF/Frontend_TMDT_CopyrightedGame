@@ -1,0 +1,105 @@
+.support-page {
+    --support-bg: #0b1631;
+    --support-surface: #13213f;
+    --support-border: #263a63;
+    --support-text: #e6ecf5;
+    --support-muted: #a6b3c8;
+    --support-yellow: #ffb703;
+    background-color: var(--support-bg);
+    color: var(--support-text);
+}
+.support-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0;
+}
+.support-subtitle {
+    color: var(--support-muted);
+    margin: 4px 0 24px;
+}
+.support-box {
+    padding: 24px;
+    background-color: var(--support-surface);
+    border: 1px solid var(--support-border);
+    border-radius: 10px;
+}
+.support-box-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+.support-page .form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+.support-page .form-control,
+.support-page .form-select {
+    background-color: var(--support-bg);
+    border-color: var(--support-border);
+    color: var(--support-text);
+}
+.support-page .form-control::placeholder {
+    color: #6c7a93;
+}
+.support-page .form-control:focus,
+.support-page .form-select:focus {
+    border-color: var(--support-yellow);
+    box-shadow: 0 0 0 0.2rem rgba(255, 183, 3, 0.2);
+}
+.support-counter {
+    text-align: right;
+    color: var(--support-muted);
+    font-size: 0.75rem;
+    margin-top: 4px;
+}
+.support-submit {
+    padding: 10px 28px;
+    font-weight: 600;
+}
+.support-search-message {
+    color: var(--support-muted);
+    font-size: 0.875rem;
+    margin: 12px 0 0;
+}
+.support-result {
+    margin-top: 14px;
+    padding-top: 6px;
+    border-top: 1px solid var(--support-border);
+}
+.support-result p {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 8px 0 0;
+    font-size: 0.875rem;
+}
+.support-result span {
+    color: var(--support-muted);
+}
+.support-status {
+    color: var(--support-yellow);
+}
+.support-steps {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--support-muted);
+}
+.support-steps li {
+    padding: 6px 0;
+}
+.support-steps li::marker {
+    color: var(--support-yellow);
+    font-weight: 700;
+}
+.support-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    border-top: 1px solid var(--support-border);
+    color: var(--support-text);
+    text-decoration: none;
+}
+.support-link:hover {
+    color: var(--support-yellow);
+}
