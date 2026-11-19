@@ -1,22 +1,4 @@
-export type SupportForm = {
-    fullName: string;
-    email: string;
-    orderCode: string;
-    issueType: string;
-    platform: string;
-    gameKey: string;
-    imageUrl: string;
-    description: string;
-};
-
-export type SupportTicket = SupportForm & {
-    id: string;
-    code: string;
-    status: string;
-    createdAt: string;
-};
-
-export const issueTypes: string[] = [
+export const issueTypes = [
     "Key báo đã được sử dụng",
     "Key không hợp lệ",
     "Sai khu vực kích hoạt",
@@ -26,11 +8,11 @@ export const issueTypes: string[] = [
     "Khác",
 ];
 
-export const keyIssues: string[] = [
+export const keyIssues = [
     "Key báo đã được sử dụng",
     "Key không hợp lệ",
     "Sai khu vực kích hoạt",
     "Giao sai game",
 ];
 
-export const platforms: string[] = ["Steam", "GOG", "Epic Games", "Xbox", "PlayStation", "Khác"];
+export const platforms = ["Steam", "GOG", "Epic Games", "Xbox", "PlayStation", "Khác"];

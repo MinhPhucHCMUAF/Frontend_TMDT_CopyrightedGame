@@ -1,5 +1,4 @@
 import { useState } from "react";
-import type { ChangeEvent, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,12 +13,11 @@ import {
     faRotateLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookMessenger } from "@fortawesome/free-brands-svg-icons";
-import type { ContactForm } from "../../data/contactData.ts";
-import { contactTopics } from "../../data/contactData.ts";
-import { API_URL } from "../../api/api.ts";
+import { contactTopics } from "../../data/contactData";
+import { API_URL } from "../../api/api";
 import "./contactstyle.css";
 
-const emptyForm: ContactForm = {
+const emptyForm = {
     fullName: "",
     email: "",
     phone: "",
@@ -28,56 +26,73 @@ const emptyForm: ContactForm = {
     message: "",
 };
 
-function validate(form: ContactForm) {
-    const errors: Partial<Record<keyof ContactForm, string>> = {};
-    if (form.fullName.trim().length < 2) errors.fullName = "Vui lòng nhập họ tên.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) errors.email = "Email không hợp lệ.";
-    if (form.phone && !/^0\d{9}$/.test(form.phone.trim())) errors.phone = "Số điện thoại gồm 10 số, bắt đầu bằng 0.";
-    if (!form.topic) errors.topic = "Vui lòng chọn chủ đề.";
-    if (form.message.trim().length < 20) errors.message = "Nội dung cần ít nhất 20 ký tự.";
+function validate(form: any) {
+    const errors: any = {};
+    if (form.fullName.trim().length < 2) {
+        errors.fullName = "Vui lòng nhập họ tên.";
+    }
+    if (!form.email.includes("@") || !form.email.includes(".")) {
+        errors.email = "Email không hợp lệ.";
+    }
+    if (form.phone !== "" && (form.phone.length !== 10 || !form.phone.startsWith("0") || isNaN(Number(form.phone)))) {
+        errors.phone = "Số điện thoại gồm 10 số, bắt đầu bằng 0.";
+    }
+    if (form.topic === "") {
+        errors.topic = "Vui lòng chọn chủ đề.";
+    }
+    if (form.message.trim().length < 20) {
+        errors.message = "Nội dung cần ít nhất 20 ký tự.";
+    }
     return errors;
 }
 
 function Contact() {
-    const [form, setForm] = useState<ContactForm>(emptyForm);
-    const [errors, setErrors] = useState<Partial<Record<keyof ContactForm, string>>>({});
+    const [form, setForm] = useState(emptyForm);
+    const [errors, setErrors] = useState<any>({});
     const [sending, setSending] = useState(false);
     const [success, setSuccess] = useState("");
     const [serverError, setServerError] = useState("");
 
     const needOrderCode = form.topic === "Đơn hàng" || form.topic === "Kích hoạt key";
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const handleChange = (e: any) => {
         setForm({ ...form, [e.target.name]: e.target.value });
-        setErrors({ ...errors, [e.target.name]: undefined });
+        setErrors({ ...errors, [e.target.name]: "" });
     };
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         setSuccess("");
         setServerError("");
         const newErrors = validate(form);
         setErrors(newErrors);
-        if (Object.keys(newErrors).length > 0) return;
+        if (Object.keys(newErrors).length > 0) {
+            return;
+        }
 
         setSending(true);
-        fetch(API_URL + "/contacts", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                ...form,
-                orderCode: needOrderCode ? form.orderCode : "",
-                status: "Mới",
-                createdAt: new Date().toISOString(),
-            }),
-        })
-            .then((res) => {
-                if (!res.ok) throw new Error();
-                setSuccess("Cảm ơn " + form.fullName.trim() + "! Chúng tôi đã nhận được tin nhắn và sẽ phản hồi qua email trong vòng 24 giờ.");
+        try {
+            const res = await fetch(`${API_URL}/contacts`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    ...form,
+                    orderCode: needOrderCode ? form.orderCode : "",
+                    status: "Mới",
+                    createdAt: new Date().toISOString(),
+                }),
+            });
+            if (res.ok) {
+                setSuccess("Cảm ơn " + form.fullName + "! Chúng tôi đã nhận được tin nhắn và sẽ phản hồi qua email trong vòng 24 giờ.");
                 setForm(emptyForm);
-            })
-            .catch(() => setServerError("Gửi không thành công. Hãy kiểm tra json-server đã chạy chưa rồi thử lại."))
-            .finally(() => setSending(false));
+            } else {
+                setServerError("Gửi không thành công, vui lòng thử lại.");
+            }
+        } catch (err) {
+            console.log(err);
+            setServerError("Gửi không thành công. Hãy kiểm tra json-server đã chạy chưa rồi thử lại.");
+        }
+        setSending(false);
     };
 
     return (
