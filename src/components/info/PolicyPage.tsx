@@ -1,27 +1,22 @@
 import { Link } from "react-router-dom";
-import type { Policy } from "../../data/infoData.ts";
-import { useInfoData } from "../../hooks/useInfoData.ts";
+import { usePolicyData } from "../../hooks/usePolicyData";
 import "./infostyle.css";
 
-type PolicyPageProps = {
-    policyId: string;
-};
-
-function PolicyPage({ policyId }: PolicyPageProps) {
-    const { data: policy, loading, error } = useInfoData<Policy | null>("/policies/" + policyId, null);
+function PolicyPage({ policyId }: { policyId: string }) {
+    const { policy, loading } = usePolicyData(policyId);
 
     return (
         <div className="info-page py-4">
             <div className="container">
                 {loading && <div className="info-empty">Đang tải nội dung...</div>}
-                {!loading && (error || !policy) && <div className="info-empty">{error || "Không tìm thấy chính sách."}</div>}
+                {!loading && policy === null && <div className="info-empty">Không tìm thấy chính sách.</div>}
 
-                {!loading && !error && policy && (
+                {!loading && policy !== null && (
                     <div className="row g-4">
                         <aside className="col-lg-3">
                             <div className="info-box policy-menu">
                                 <h2 className="info-box-title">Nội dung</h2>
-                                {policy.sections.map((section, index) => (
+                                {policy.sections.map((section: any, index: number) => (
                                     <a href={"#muc-" + (index + 1)} key={section.heading}>
                                         {index + 1}. {section.heading}
                                     </a>
@@ -34,11 +29,11 @@ function PolicyPage({ policyId }: PolicyPageProps) {
                                 Cập nhật ngày {new Date(policy.updatedAt).toLocaleDateString("vi-VN")}
                             </p>
                             <p className="policy-summary">{policy.summary}</p>
-                            {policy.sections.map((section, index) => (
+                            {policy.sections.map((section: any, index: number) => (
                                 <section className="policy-section" id={"muc-" + (index + 1)} key={section.heading}>
                                     <h2>{index + 1}. {section.heading}</h2>
                                     <ul>
-                                        {section.paragraphs.map((text) => (
+                                        {section.paragraphs.map((text: any) => (
                                             <li key={text}>{text}</li>
                                         ))}
                                     </ul>

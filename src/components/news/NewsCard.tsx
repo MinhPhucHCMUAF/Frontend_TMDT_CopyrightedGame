@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar, faEye } from "@fortawesome/free-regular-svg-icons";
-import type { News } from "../../data/newsData.ts";
 
-type NewsCardProps = {
-    news: News;
-};
-
-export function NewsCard({ news }: NewsCardProps) {
+export function NewsCard({ news }: { news: any }) {
     return (
         <Link to={"/tin-tuc/" + news.id} className="news-card">
             <div className="news-card-image">

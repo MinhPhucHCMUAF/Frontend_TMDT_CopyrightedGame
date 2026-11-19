@@ -1,13 +1,4 @@
-export type ContactForm = {
-    fullName: string;
-    email: string;
-    phone: string;
-    topic: string;
-    orderCode: string;
-    message: string;
-};
-
-export const contactTopics: string[] = [
+export const contactTopics = [
     "Đơn hàng",
     "Kích hoạt key",
     "Thanh toán",

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import type { ChangeEvent, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,12 +9,11 @@ import {
     faKey,
     faCircleQuestion,
 } from "@fortawesome/free-solid-svg-icons";
-import type { SupportForm, SupportTicket } from "../../data/supportData.ts";
-import { issueTypes, keyIssues, platforms } from "../../data/supportData.ts";
-import { API_URL } from "../../api/api.ts";
+import { issueTypes, keyIssues, platforms } from "../../data/supportData";
+import { API_URL } from "../../api/api";
 import "./supportstyle.css";
 
-const emptyForm: SupportForm = {
+const emptyForm = {
     fullName: "",
     email: "",
     orderCode: "",
@@ -26,81 +24,110 @@ const emptyForm: SupportForm = {
     description: "",
 };
 
-function validate(form: SupportForm, isKeyIssue: boolean) {
-    const errors: Partial<Record<keyof SupportForm, string>> = {};
-    if (form.fullName.trim().length < 2) errors.fullName = "Vui lòng nhập họ tên.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) errors.email = "Email không hợp lệ.";
-    if (!/^KG\d{6}$/i.test(form.orderCode.trim())) errors.orderCode = "Mã đơn hàng gồm KG và 6 chữ số, ví dụ KG123456.";
-    if (!form.issueType) errors.issueType = "Vui lòng chọn loại vấn đề.";
-    if (isKeyIssue && !form.platform) errors.platform = "Vui lòng chọn nền tảng kích hoạt.";
-    if (form.imageUrl && !/^https?:\/\//.test(form.imageUrl.trim())) errors.imageUrl = "Link ảnh phải bắt đầu bằng http:// hoặc https://";
-    if (form.description.trim().length < 20) errors.description = "Mô tả cần ít nhất 20 ký tự.";
+function validate(form: any, isKeyIssue: boolean) {
+    const errors: any = {};
+    const orderCode = form.orderCode.trim().toUpperCase();
+    if (form.fullName.trim().length < 2) {
+        errors.fullName = "Vui lòng nhập họ tên.";
+    }
+    if (!form.email.includes("@") || !form.email.includes(".")) {
+        errors.email = "Email không hợp lệ.";
+    }
+    if (orderCode.length !== 8 || !orderCode.startsWith("KG") || isNaN(Number(orderCode.slice(2)))) {
+        errors.orderCode = "Mã đơn hàng gồm KG và 6 chữ số, ví dụ KG123456.";
+    }
+    if (form.issueType === "") {
+        errors.issueType = "Vui lòng chọn loại vấn đề.";
+    }
+    if (isKeyIssue && form.platform === "") {
+        errors.platform = "Vui lòng chọn nền tảng kích hoạt.";
+    }
+    if (form.imageUrl !== "" && !form.imageUrl.startsWith("http")) {
+        errors.imageUrl = "Link ảnh phải bắt đầu bằng http:// hoặc https://";
+    }
+    if (form.description.trim().length < 20) {
+        errors.description = "Mô tả cần ít nhất 20 ký tự.";
+    }
     return errors;
 }
 
 function SupportRequest() {
-    const [form, setForm] = useState<SupportForm>(emptyForm);
-    const [errors, setErrors] = useState<Partial<Record<keyof SupportForm, string>>>({});
+    const [form, setForm] = useState(emptyForm);
+    const [errors, setErrors] = useState<any>({});
     const [sending, setSending] = useState(false);
     const [ticketCode, setTicketCode] = useState("");
     const [serverError, setServerError] = useState("");
 
     const [searchCode, setSearchCode] = useState("");
-    const [searchResult, setSearchResult] = useState<SupportTicket | null>(null);
+    const [searchResult, setSearchResult] = useState<any>(null);
     const [searchMessage, setSearchMessage] = useState("");
 
     const isKeyIssue = keyIssues.includes(form.issueType);
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const handleChange = (e: any) => {
         setForm({ ...form, [e.target.name]: e.target.value });
-        setErrors({ ...errors, [e.target.name]: undefined });
+        setErrors({ ...errors, [e.target.name]: "" });
     };
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         setTicketCode("");
         setServerError("");
         const newErrors = validate(form, isKeyIssue);
         setErrors(newErrors);
-        if (Object.keys(newErrors).length > 0) return;
+        if (Object.keys(newErrors).length > 0) {
+            return;
+        }
 
-        const code = "HT" + Date.now().toString().slice(-6);
+        const code = "HT" + Math.floor(100000 + Math.random() * 900000);
         setSending(true);
-        fetch(API_URL + "/tickets", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                ...form,
-                orderCode: form.orderCode.trim().toUpperCase(),
-                platform: isKeyIssue ? form.platform : "",
-                gameKey: isKeyIssue ? form.gameKey : "",
-                code: code,
-                status: "Đang chờ xử lý",
-                createdAt: new Date().toISOString(),
-            }),
-        })
-            .then((res) => {
-                if (!res.ok) throw new Error();
+        try {
+            const res = await fetch(`${API_URL}/tickets`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    ...form,
+                    orderCode: form.orderCode.trim().toUpperCase(),
+                    platform: isKeyIssue ? form.platform : "",
+                    gameKey: isKeyIssue ? form.gameKey : "",
+                    code: code,
+                    status: "Đang chờ xử lý",
+                    createdAt: new Date().toISOString(),
+                }),
+            });
+            if (res.ok) {
                 setTicketCode(code);
                 setForm(emptyForm);
-            })
-            .catch(() => setServerError("Gửi không thành công. Hãy kiểm tra json-server đã chạy chưa rồi thử lại."))
-            .finally(() => setSending(false));
+            } else {
+                setServerError("Gửi không thành công, vui lòng thử lại.");
+            }
+        } catch (err) {
+            console.log(err);
+            setServerError("Gửi không thành công. Hãy kiểm tra json-server đã chạy chưa rồi thử lại.");
+        }
+        setSending(false);
     };
 
-    const handleSearch = (e: FormEvent) => {
+    const handleSearch = async (e: any) => {
         e.preventDefault();
         setSearchResult(null);
         setSearchMessage("");
         const code = searchCode.trim().toUpperCase();
-        if (!code) return;
-        fetch(API_URL + "/tickets?code=" + encodeURIComponent(code))
-            .then((res) => res.json())
-            .then((list: SupportTicket[]) => {
-                if (list.length === 0) setSearchMessage("Không tìm thấy yêu cầu có mã " + code + ".");
-                else setSearchResult(list[0]);
-            })
-            .catch(() => setSearchMessage("Không tra cứu được. Hãy kiểm tra json-server đã chạy chưa."));
+        if (code === "") {
+            return;
+        }
+        try {
+            const res = await fetch(`${API_URL}/tickets?code=${code}`);
+            const data = await res.json();
+            if (data.length === 0) {
+                setSearchMessage("Không tìm thấy yêu cầu có mã " + code + ".");
+            } else {
+                setSearchResult(data[0]);
+            }
+        } catch (err) {
+            console.log(err);
+            setSearchMessage("Không tra cứu được. Hãy kiểm tra json-server đã chạy chưa.");
+        }
     };
 
     return (

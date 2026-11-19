@@ -2,17 +2,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadset, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
-import type { Guide as GuideItem } from "../../data/infoData.ts";
-import { useInfoData } from "../../hooks/useInfoData.ts";
+import { useGuideData } from "../../hooks/useGuideData";
 import "./infostyle.css";
 
 function Guide() {
-    const { data: guides, loading, error } = useInfoData<GuideItem[]>("/guides", []);
+    const { guides, loading } = useGuideData();
     const [platform, setPlatform] = useState("steam");
 
-    const buyGuide = guides.find((item) => item.id === "mua-hang");
-    const activeGuides = guides.filter((item) => item.id !== "mua-hang");
-    const currentGuide = activeGuides.find((item) => item.id === platform);
+    const buyGuide: any = guides.find((item: any) => item.id === "mua-hang");
+    const activeGuides = guides.filter((item: any) => item.id !== "mua-hang");
+    const currentGuide: any = activeGuides.find((item: any) => item.id === platform);
 
     return (
         <div className="info-page py-4">
@@ -23,15 +22,15 @@ function Guide() {
                 </p>
 
                 {loading && <div className="info-empty">Đang tải hướng dẫn...</div>}
-                {!loading && error && <div className="info-empty">{error}</div>}
+                {!loading && guides.length === 0 && <div className="info-empty">Không tải được hướng dẫn. Hãy kiểm tra json-server đã chạy chưa.</div>}
 
-                {!loading && !error && (
+                {!loading && guides.length > 0 && (
                     <>
                         {buyGuide && (
                             <section className="info-box mb-4">
                                 <h2 className="info-box-title">{buyGuide.title}</h2>
                                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
-                                    {buyGuide.steps.map((step, index) => (
+                                    {buyGuide.steps.map((step: any, index: number) => (
                                         <div className="col" key={step.title}>
                                             <div className="guide-step">
                                                 <span className="guide-step-number">{index + 1}</span>
@@ -47,7 +46,7 @@ function Guide() {
                         <section className="info-box mb-4">
                             <h2 className="info-box-title">Kích hoạt key theo nền tảng</h2>
                             <div className="info-tabs">
-                                {activeGuides.map((item) => (
+                                {activeGuides.map((item: any) => (
                                     <button
                                         key={item.id}
                                         type="button"
@@ -60,7 +59,7 @@ function Guide() {
                             </div>
                             {currentGuide && (
                                 <ol className="guide-list">
-                                    {currentGuide.steps.map((step) => (
+                                    {currentGuide.steps.map((step: any) => (
                                         <li key={step.title}>
                                             <strong>{step.title}</strong>
                                             <p>{step.text}</p>
