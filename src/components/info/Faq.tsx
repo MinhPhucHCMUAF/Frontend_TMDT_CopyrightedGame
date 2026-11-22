@@ -2,21 +2,25 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import type { Faq as FaqItem } from "../../data/infoData.ts";
-import { useInfoData } from "../../hooks/useInfoData.ts";
+import { useFaqData } from "../../hooks/useFaqData";
 import "./infostyle.css";
 
 function Faq() {
-    const { data: faqs, loading, error } = useInfoData<FaqItem[]>("/faqs", []);
+    const { faqs, loading } = useFaqData();
     const [keyword, setKeyword] = useState("");
     const [category, setCategory] = useState("Tất cả");
-    const [openId, setOpenId] = useState<number | null>(null);
+    const [openId, setOpenId] = useState(0);
 
-    const categories = ["Tất cả", ...new Set(faqs.map((item) => item.category))];
+    const categories = ["Tất cả"];
+    faqs.forEach((item: any) => {
+        if (!categories.includes(item.category)) {
+            categories.push(item.category);
+        }
+    });
 
     const result = faqs
-        .filter((item) => category === "Tất cả" || item.category === category)
-        .filter((item) => item.question.toLowerCase().includes(keyword.trim().toLowerCase()));
+        .filter((item: any) => category === "Tất cả" || item.category === category)
+        .filter((item: any) => item.question.toLowerCase().includes(keyword.toLowerCase()));
 
     return (
         <div className="info-page py-4">
@@ -51,18 +55,18 @@ function Faq() {
                 </div>
 
                 {loading && <div className="info-empty">Đang tải câu hỏi...</div>}
-                {!loading && error && <div className="info-empty">{error}</div>}
-                {!loading && !error && result.length === 0 && (
+                {!loading && faqs.length === 0 && <div className="info-empty">Không tải được câu hỏi. Hãy kiểm tra json-server đã chạy chưa.</div>}
+                {!loading && faqs.length > 0 && result.length === 0 && (
                     <div className="info-empty">Không tìm thấy câu hỏi phù hợp.</div>
                 )}
 
                 <div className="faq-list">
-                    {result.map((item) => (
+                    {result.map((item: any) => (
                         <div className={"faq-item" + (openId === item.id ? " open" : "")} key={item.id}>
                             <button
                                 type="button"
                                 className="faq-question"
-                                onClick={() => setOpenId(openId === item.id ? null : item.id)}
+                                onClick={() => setOpenId(openId === item.id ? 0 : item.id)}
                             >
                                 <span>{item.question}</span>
                                 <FontAwesomeIcon icon={faChevronDown} className="faq-icon" />
