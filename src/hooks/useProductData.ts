@@ -3,8 +3,8 @@ import { API_URL } from "../api/api";
 
 export function useProductData() {
   const [games, setGames] = useState<any[]>([]);
-  const [publisher, setPublisher] = useState([]);
-  const [categoryGames, setCategoryGames] = useState([]);
+  const [publisher, setPublisher] = useState<any[]>([]);
+  const [categoryGames, setCategoryGames] = useState<any[]>([]);
   const [keyword, setKeyWord] = useState("");
 
   const [gamesFilter, setGamesFilter] = useState(null);
@@ -49,7 +49,13 @@ export function useProductData() {
     return filterGame && filterPublisher && filterPrice && filterSearch;
   });
   const getGamebyID = (id: number) => {
-    return games.find((g) => Number(g.id) === Number(id));
+    return games.find((g) => Number(g.id) === id);
+  };
+  const getPublisherName = (id: number) => {
+    return publisher.find((pub) => Number(pub.id) === id)?.name;
+  };
+  const getCategoryGames = (id: number) => {
+    return categoryGames.find((cat) => Number(cat.id) === id)?.name;
   };
   const removeData = () => {
     setGamesFilter(null);
@@ -58,6 +64,7 @@ export function useProductData() {
   };
 
   return {
+    games,
     publisher,
     categoryGames,
     gamesFilter,
@@ -71,5 +78,7 @@ export function useProductData() {
     keyword,
     setKeyWord,
     getGamebyID,
+    getPublisherName,
+    getCategoryGames,
   };
 }

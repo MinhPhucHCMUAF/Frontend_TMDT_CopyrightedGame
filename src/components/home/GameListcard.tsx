@@ -39,7 +39,7 @@ export function GameListcard({ game }: { game: any }) {
             />
           ))}
         </span>
-        <small>Lượt tải: {game.views}</small>
+        <small>Lượt tải: {game.download}</small>
       </div>
       <div className="text-center">
         <button className="btn btn-danger">

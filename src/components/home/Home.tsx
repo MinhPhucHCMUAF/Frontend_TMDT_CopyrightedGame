@@ -213,7 +213,7 @@ function Home() {
             gamesFilter={gamesFilter}
             setGamesFilter={setGamesFilter}
           />
-          <Link to={"#"}>
+          <Link to={"/game"}>
             Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </div>
@@ -247,9 +247,6 @@ function Home() {
         <div className="text-white">
           <div className="d-flex justify-content-between align-items-center mb-3">
             <h4>Nhà phát hành game</h4>
-            <Link to={"#"}>
-              Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
-            </Link>
           </div>
           <div className="row row-cols-4 g-2 gap-2 justify-content-between">
             {publisher.slice(0, 4).map((pub: any) => (

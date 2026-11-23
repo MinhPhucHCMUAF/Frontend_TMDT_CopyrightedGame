@@ -13,7 +13,9 @@ export function Header() {
       <nav className="navbar navbar-dark ">
         <div className="container">
           <div className="d-flex align-items-center justify-content-center flex-wrap w-100 gap-2">
-            <a className="navbar-brand fw-bold text-danger me-3">KHO GAME</a>
+            <Link to={"/"} className="navbar-brand fw-bold text-danger me-3">
+              KHO GAME
+            </Link>
             <div className="flex-grow-1 me-2">
               <form className="d-flex gap-2" role="search">
                 <input

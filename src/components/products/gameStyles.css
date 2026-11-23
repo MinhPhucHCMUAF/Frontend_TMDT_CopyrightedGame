@@ -45,11 +45,16 @@
   margin-top: 25px;
   overflow: hidden;
 }
-.game-tag {
-  display: inline-block;
-  border: 1px solid #52627f;
-  padding: 7px 13px;
-  border-radius: 20px;
-  margin-right: 7px;
-  font-size: 14px;
+
+.game-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 20px 0;
+}
+.game-meta-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
 }
