@@ -3,7 +3,7 @@ import {
   faTicket,
   faEllipsisVertical,
 } from "@fortawesome/free-solid-svg-icons";
-export function Promotion({ promotion }: { promotion: any }) {
+export function PromotionCard({ promotion }: { promotion: any }) {
   return (
     <div className="col">
       <div className="card voucher-card h-100 text-white d-flex flex-column">

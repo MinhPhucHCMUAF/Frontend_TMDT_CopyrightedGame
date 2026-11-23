@@ -9,7 +9,9 @@ import Guide from "../components/info/Guide.tsx";
 import Faq from "../components/info/Faq.tsx";
 import PolicyPage from "../components/info/PolicyPage.tsx";
 import ErrorPage from "./Error.tsx";
+import Promotion from "../components/promotion/Promotion.tsx";
 import SupportRequest from "../components/support/SupportRequest.tsx";
+import GameDetailed from "../components/products/GamesDetailed.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +35,10 @@ export const router = createBrowserRouter([
         element: <GameProducts />,
       },
       {
+        path: "game/:id",
+        element: <GameDetailed />,
+      },
+      {
         path: "lien-he",
         element: <Contact />,
       },
@@ -51,6 +57,10 @@ export const router = createBrowserRouter([
       {
         path: "chinh-sach-bao-mat",
         element: <PolicyPage key="bao-mat" policyId="bao-mat" />,
+      },
+      {
+        path: "khuyen-mai",
+        element: <Promotion />,
       },
       {
         path: "yeu-cau-ho-tro",

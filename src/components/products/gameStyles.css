@@ -1,0 +1,60 @@
+.filter {
+  width: 100%;
+  max-width: 280px;
+  box-sizing: border-box;
+  background: #222c59;
+  border: 1px solid whitesmoke;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 10px 5px 20px rgba(69, 12, 240, 0.25);
+}
+.filter-header {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #46527e;
+}
+.filter-group {
+  margin-top: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #46527e;
+}
+.title-lst-game {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0;
+}
+.form-control,
+.form-control:focus {
+  background-color: #13213f;
+  border-color: #263a63;
+  color: #e6ecf5;
+}
+.news-search-icon {
+  color: #e6ecf5;
+}
+.btn-buy {
+  padding: 10px 14px;
+  font-size: 20px;
+  border-radius: 15px;
+  background: #cb0f0f;
+  box-shadow: 2px 6px 20px rgba(250, 250, 36, 0.3);
+}
+.detail-tabs {
+  background-color: #192b4d;
+  border: 1px solid #344769;
+  border-radius: 10px;
+  margin-top: 25px;
+  overflow: hidden;
+}
+
+.game-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 20px 0;
+}
+.game-meta-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}

@@ -8,25 +8,23 @@ import {
   faRibbon,
   faTicket,
 } from "@fortawesome/free-solid-svg-icons";
-import "./home.css";
-import { Homecard } from "./Homecard";
+import "./homeStyles.css";
+import { GameListcard } from "./GameListcard";
 import { CategoryCardHome } from "./CategoryCardHome";
-import { GameCard } from "./GameCard";
-import { Publisher } from "./Publisher";
-import { Promotion } from "./PromotionBanner";
+import { PromotionCard } from "./PromotionBannerCard";
 import { NewsCard } from "../news/NewsCard";
 import "../news/newsstyle.css";
 import { useHomeData } from "../../hooks/useHomeData";
 import { useNewsData } from "../../hooks/useNewsData";
+import { PublisherCard } from "./PublisherCard";
 function Home() {
   const {
     categoryGames,
     gamesFilter,
     voucher,
-    publisher,
-    gamesCard,
     setGamesFilter,
     filter,
+    publisher,
   } = useHomeData();
   const { news } = useNewsData();
 
@@ -203,7 +201,7 @@ function Home() {
         </div>
         <div className="row row-cols-2 row-cols-lg-4 g-3">
           {voucher.slice(0, 4).map((v: any) => (
-            <Promotion key={v.id} promotion={v} />
+            <PromotionCard key={v.id} promotion={v} />
           ))}
         </div>
       </div>
@@ -215,14 +213,14 @@ function Home() {
             gamesFilter={gamesFilter}
             setGamesFilter={setGamesFilter}
           />
-          <Link to={"#"}>
+          <Link to={"/game"}>
             Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </div>
         <div className="row row-cols-2  row-cols-md-2 row-cols-xl-4 g-4 ">
           {filter.slice(0, 4).map((game: any) => (
             <div className="col">
-              <Homecard key={game.id} game={game} />
+              <GameListcard key={game.id} game={game} />
             </div>
           ))}
         </div>
@@ -245,32 +243,14 @@ function Home() {
             ))}
         </div>
       </div>
-      <div className="row g-2 mb-3 mt-3 card-games">
-        <div className="text-white">
-          <div className="d-flex justify-content-between align-items-center mb-3">
-            <h4>Thẻ nạp game</h4>
-            <Link to={"#"}>
-              Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
-            </Link>
-          </div>
-          <div className="row row-cols-4 g-2  justify-content-between">
-            {gamesCard.slice(0, 3).map((gc: any) => (
-              <GameCard key={gc.id} gameCards={gc} />
-            ))}
-          </div>
-        </div>
-      </div>
       <div className="row g-3 mb-3 mt-3 publisher-games">
         <div className="text-white">
           <div className="d-flex justify-content-between align-items-center mb-3">
-            <h4>Nhà phát hành</h4>
-            <Link to={"#"}>
-              Xem tất cả <FontAwesomeIcon icon={faArrowRight} />
-            </Link>
+            <h4>Nhà phát hành game</h4>
           </div>
           <div className="row row-cols-4 g-2 gap-2 justify-content-between">
-            {publisher.slice(0, 3).map((pub: any) => (
-              <Publisher key={pub.id} publisher={pub} />
+            {publisher.slice(0, 4).map((pub: any) => (
+              <PublisherCard key={pub.id} publisher={pub} />
             ))}
           </div>
         </div>
