@@ -2,63 +2,69 @@ body {
   background-color: #13213f;
 }
 .hero {
-  height: 740px !important;
+  position: relative;
+  width: 100%;
+  height: 480px;
+  border-radius: 16px;
+}
+.hero .carousel-item {
+  position: relative;
+}
+.carousel-publisher {
+  width: 90%;
+  height: 400px;
+  margin: 10px auto;
+  overflow: hidden;
+  position: relative;
+}
+.track {
+  gap: 1em;
+}
+.group {
+  gap: 1em;
+  animation: spin 10s linear infinite;
 }
 .carousel-inner,
 .carousel-item {
+  width: 100%;
   height: 100%;
 }
-.carousel-caption {
-  top: 0px;
-  left: 0px;
-  right: 0;
-  bottom: 0;
-  text-align: left;
-  max-width: 100%;
-  padding: 24px;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(1px);
+.hero .carousel-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
-.badge-sale {
-  display: inline-block;
-  background: yellow;
-  color: #3a2f00;
-  font-weight: 600;
-  font-size: 0.8rem;
-  padding: 7px 12px;
-  border-radius: 6px;
-  margin-bottom: 16px;
-}
-
-.discount {
-  background: #ea5a3c;
-  color: #fff;
-  font-weight: 700;
-  font-size: 0.85rem;
-  padding: 4px 8px;
-  border-radius: 5px;
-}
-.old-price {
-  text-decoration: line-through;
-  margin-left: 8px;
-}
-.price {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 8px 0 20px;
-}
-.btn-buy {
-  width: 30%;
-}
-.sidebar-right {
-  position: relative;
-}
-.info-right {
+.hero .carousel-caption {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  max-width: 100%;
+  padding: 40px;
+  text-align: left;
+  pointer-events: none;
+  background: rgba(39, 37, 37, 0.5);
+  backdrop-filter: none;
+}
+
+.btn-buy {
+  padding: 13px 25px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+.btn-buy:hover {
+  background: #c82333;
+  transform: translateY(-3px);
+}
+.hero .carousel-caption .btn-buy {
+  pointer-events: auto;
+  position: relative;
+  z-index: 3;
 }
 .promotion-banner {
   background: linear-gradient(to right, rgb(135, 21, 21), rgb(193, 33, 33));
@@ -99,16 +105,23 @@ body {
   overflow: hidden;
 }
 .card-publish {
-  width: 100%;
-  max-width: 300px;
-  padding: 20px;
-  background: linear-gradient(to right, #1d3866, #101e33);
-  border-radius: 14px;
-  box-shadow: 10px 5px 20px rgba(21, 19, 114, 0.25);
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 .card-publish-content {
-  min-height: 138px;
-  gap: 12px;
+  height: 100%;
+  gap: 15px;
+  padding: 15px;
+}
+.publisher-icon {
+  width: 100%;
+  height: 150px;
+}
+.publisher-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .voucher-card {
   background: #101e33;
@@ -166,4 +179,12 @@ body {
   right: -10px;
   color: #00051c;
   font-size: 20px;
+}
+@keyframes spin {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
 }

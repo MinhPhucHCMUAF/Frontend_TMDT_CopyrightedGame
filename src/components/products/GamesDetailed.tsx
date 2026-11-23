@@ -1,7 +1,10 @@
 import { useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import "./gameStyles.css";
 import { useProductData } from "../../hooks/useProductData";
 import { GameListcard } from "../home/GameListcard";
+import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 function GameDetailed() {
   const { id } = useParams();
   const { getGamebyID, getPublisherName, getCategoryGames, games } =
@@ -28,7 +31,7 @@ function GameDetailed() {
               <span className="text-secondary">(4.0)</span>
             </div>
             <div className="mb-4">
-              <span className="text-secondary small">Giá bán</span>
+              <span className="text-secondary small">Giá bán:</span>
               <h2 className="text-danger fw-bold">
                 {game.price.toLocaleString("vi-VN")} VNĐ
               </h2>
@@ -57,9 +60,13 @@ function GameDetailed() {
               <h5 className="fw-bold mb-2">Giới thiệu game</h5>
               <p className="text-secondary game-summary">{game.summary}</p>
             </div>
-            <div className="d-flex flex-row gap-3">
+            <div className="d-flex flex-row align-items-center gap-3">
               <button className="btn btn-cart ">Thêm vào giỏ hàng</button>
               <button className="btn btn-buy">Mua ngay</button>
+              <FontAwesomeIcon
+                icon={faBookmark}
+                style={{ fontSize: "30px", cursor: "pointer" }}
+              />
             </div>
           </div>
         </div>

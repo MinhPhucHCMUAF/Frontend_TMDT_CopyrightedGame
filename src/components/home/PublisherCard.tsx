@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserPen } from "@fortawesome/free-solid-svg-icons";
 export function PublisherCard({ publisher }: { publisher: any }) {
   return (
-    <div className="card card-publish text-white">
-      <Link to="#" className="text-decoration-none text-white">
-        <div className="d-flex flex-column align-items-center justify-content-center text-align-center card-publish-content">
+    <div className="card card-publish">
+      <Link to="#" className="text-decoration-none text-dark">
+        <div className="card-publish-content">
           <div className="publisher-icon">
-            <FontAwesomeIcon icon={faUserPen} style={{ fontSize: "30px" }} />
+            <img src={publisher.image} alt={publisher.name} />
           </div>
-          <h5 className="card-title">{publisher.name}</h5>
         </div>
       </Link>
     </div>

@@ -236,35 +236,43 @@
   "publisher-game": [
     {
       "id": 1,
-      "name": "CD PROJEKT RED"
+      "name": "CD PROJEKT RED",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/CD_Projekt_RED_logo.png"
     },
     {
       "id": 2,
-      "name": "Larian Studios"
+      "name": "Larian Studios",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/LarianStudiosLogo.png"
     },
     {
       "id": 3,
-      "name": "Capcom"
+      "name": "Capcom",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Capcom_logo.svg"
     },
     {
       "id": 4,
-      "name": "Ubisoft"
+      "name": "Ubisoft",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Ubisoft_logo.svg/500px-Ubisoft_logo.svg.png"
     },
     {
       "id": 5,
-      "name": "Bandai Namco"
+      "name": "Bandai Namco",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bandai_Namco_Holdings_logo_%282022%2C_with_tagline%29.svg"
     },
     {
       "id": 6,
-      "name": "Electronic Arts"
+      "name": "Electronic Arts",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Electronic_Arts_Logo_2020.png"
     },
     {
       "id": 7,
-      "name": "Game Science"
+      "name": "Game Science",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Game_Science_text_logo.png"
     },
     {
       "id": 8,
-      "name": "Paradox Interactive"
+      "name": "Paradox Interactive",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Stellaris_logo.svg"
     }
   ],
   "product-game": [

@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBookmark,
+  faCartShopping,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
 export function GameListcard({ game }: { game: any }) {
   const averageRating =
     game.rating.length > 0
@@ -39,7 +43,12 @@ export function GameListcard({ game }: { game: any }) {
             />
           ))}
         </span>
-        <small>Lượt tải: {game.download}</small>
+        <small>
+          <FontAwesomeIcon
+            icon={faBookmark}
+            style={{ fontSize: "20px", cursor: "pointer" }}
+          />
+        </small>
       </div>
       <div className="text-center">
         <button className="btn btn-danger">

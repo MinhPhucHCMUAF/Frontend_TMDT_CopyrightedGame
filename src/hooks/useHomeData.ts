@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "../api/api";
 
-// sd cho trang chủ
 export function useHomeData() {
-  const [games, setGames] = useState([]);
+  const [games, setGames] = useState<any[]>([]);
   const [publisher, setPublisher] = useState([]);
   const [voucher, setVoucher] = useState([]);
   const [categoryGames, setCategoryGames] = useState([]);
@@ -46,4 +45,3 @@ export function useHomeData() {
     filter,
   };
 }
-// sd cho trang khác
