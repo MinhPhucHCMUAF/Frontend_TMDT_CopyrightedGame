@@ -8,7 +8,7 @@ import {
   faRibbon,
   faTicket,
 } from "@fortawesome/free-solid-svg-icons";
-import "./homeStyles.css";
+import "./homestyle.css";
 import { GameListcard } from "./GameListcard";
 import { CategoryCardHome } from "./CategoryCardHome";
 import { PromotionCard } from "./PromotionBannerCard";
@@ -19,6 +19,7 @@ import { useNewsData } from "../../hooks/useNewsData";
 import { PublisherCard } from "./PublisherCard";
 function Home() {
   const {
+    games,
     categoryGames,
     gamesFilter,
     voucher,
@@ -31,97 +32,56 @@ function Home() {
   return (
     <div className="container py-2">
       <div className="row g-3 mb-3 mt-3">
-        <div className="col-lg-7">
+        <div className="col-12">
           <div
             id="demo"
             className="carousel slide hero  "
             data-bs-ride="carousel"
           >
             <div className="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#demo"
-                data-bs-slide-to="0"
-                className="active"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#demo"
-                data-bs-slide-to="1"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#demo"
-                data-bs-slide-to="2"
-              ></button>
-            </div>
-            <div className="carousel-inner ">
-              <div className="carousel-item active">
-                <img
-                  src="https://www.boardgamequest.com/wp-content/uploads/2024/08/Cyberpunk-The-Board-Game-640x640.jpg"
-                  alt="Cyberpunk"
-                  className="w-100 h-100 object-fit-cover "
+              {games.slice(0, 3).map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  data-bs-target="#demo"
+                  data-bs-slide-to={index}
+                  className={index === 0 ? "active" : ""}
+                  aria-current={index === 0 ? "true" : undefined}
+                  aria-label={`Slide ${index + 1}`}
                 />
-                <div className="carousel-caption fs-4 text-white">
-                  <span className="badge-sale">Siêu sale tháng 11</span>
-                  <h2>Tên game nổi bật 1</h2>
-                  <p className="desc ">
-                    Bản Ultimate kèm bản mở rộng, kích hoạt nhanh chóng và an
-                    toàn.
-                  </p>
-                  <div className="product-price">
-                    <div className="d-flex align-items-center gap-3">
-                      <span className="discount">-50%</span>
-                      <span className="old-price fw-bold">1.490.000đ</span>
+              ))}
+            </div>
+            <div className="carousel-inner">
+              {games.slice(0, 3).map((game, index) => (
+                <div
+                  key={game.id}
+                  className={`carousel-item ${index === 0 ? "active" : ""}`}
+                >
+                  <img
+                    src={game.image}
+                    alt={game.name}
+                    className="w-100 h-100 object-fit-cover"
+                  />
+                  <div className="carousel-caption text-white d-flex flex-column justify-content-center align-items-start">
+                    <h2 className="fs-1">{game.title}</h2>
+                    <small>{game.summary}</small>
+                    <div>
+                      <div className="d-flex align-items-center gap-3 mb-3 mt-3">
+                        <span className="fs-1 fw-bold text-info text-decoration-underline">
+                          {game.price.toLocaleString("vi-VN")} VNĐ
+                        </span>
+                      </div>
+                      <Link
+                        to={`/game/${game.id}`}
+                        className="btn btn-danger p-3 btn-buy"
+                      >
+                        Mua ngay
+                      </Link>
                     </div>
-                    <div className="price">745.000đ</div>
-                    <button className="btn btn-danger p-3 btn-buy">
-                      Mua ngay
-                    </button>
                   </div>
                 </div>
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="https://store-images.s-microsoft.com/image/apps.17382.13510798885735219.9735d495-578c-4a4c-b892-3eb3a780b3a0.d3792486-cf98-40c0-a2c1-d6443f0e2b70"
-                  alt="Chicago"
-                  className="w-100 h-100 object-fit-cover"
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9B5d_Wq6J_Qruht68nmx3RgD7jLUFDQ_oRXc3rpWU6omETBbJpcXStmxu&s=10"
-                  alt="New York"
-                  className="w-100 h-100 object-fit-cover"
-                />
-              </div>
+              ))}
             </div>
-          </div>
-        </div>
-        <div className="col-lg-5 d-flex flex-column gap-3">
-          <div className="flex-fill sidebar-right">
-            <Link to="#">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4k9pznX824KxVzJwh0HCKGH65NMl5Xsbhv8_2iVwOPN3-A_MpMajJz2bd&s=10"
-                className="w-100 h-100 object-fit-cover"
-              />
-              <div className="info-right">
-                <h3>TÊN GAME SỐ 1</h3>
-                <p>145.000 VNĐ</p>
-              </div>
-            </Link>
-          </div>
-          <div className="flex-fill sidebar-right">
-            <Link to="#">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4k9pznX824KxVzJwh0HCKGH65NMl5Xsbhv8_2iVwOPN3-A_MpMajJz2bd&s=10"
-                className="w-100 h-100 object-fit-cover"
-              />
-              <div className="info-right">
-                <h3>TÊN GAME SỐ 1</h3>
-                <p>145.000 VNĐ</p>
-              </div>
-            </Link>
           </div>
         </div>
       </div>
@@ -249,9 +209,23 @@ function Home() {
             <h4>Nhà phát hành game</h4>
           </div>
           <div className="row row-cols-4 g-2 gap-2 justify-content-between">
-            {publisher.slice(0, 4).map((pub: any) => (
-              <PublisherCard key={pub.id} publisher={pub} />
-            ))}
+            <div className="carousel-publisher">
+              <div className="track d-flex flex-column align-items-center">
+                <div className="group d-flex flex-column align-items-center">
+                  {publisher.map((pub: any) => (
+                    <PublisherCard key={pub.id} publisher={pub} />
+                  ))}
+                </div>
+                <div
+                  className="group d-flex flex-column align-items-center"
+                  aria-hidden="true"
+                >
+                  {publisher.map((pub: any) => (
+                    <PublisherCard key={pub.id} publisher={pub} />
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
